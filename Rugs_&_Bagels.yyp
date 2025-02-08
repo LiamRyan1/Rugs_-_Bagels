@@ -37,9 +37,16 @@
     {"id":{"name":"obj_Exit","path":"objects/obj_Exit/obj_Exit.yy",},},
     {"id":{"name":"obj_Player","path":"objects/obj_Player/obj_Player.yy",},},
     {"id":{"name":"Room1","path":"rooms/Room1/Room1.yy",},},
+<<<<<<< Updated upstream
     {"id":{"name":"Room2","path":"rooms/Room2/Room2.yy",},},
     {"id":{"name":"sExit","path":"sprites/sExit/sExit.yy",},},
+=======
+    {"id":{"name":"MACROS","path":"scripts/MACROS/MACROS.yy",},},
+    {"id":{"name":"PlayerCollision","path":"scripts/PlayerCollision/PlayerCollision.yy",},},
+    {"id":{"name":"sCol","path":"sprites/sCol/sCol.yy",},},
+>>>>>>> Stashed changes
     {"id":{"name":"sPlayer","path":"sprites/sPlayer/sPlayer.yy",},},
+    {"id":{"name":"t_coll","path":"tilesets/t_coll/t_coll.yy",},},
   ],
   "resourceType":"GMProject",
   "resourceVersion":"2.0",
