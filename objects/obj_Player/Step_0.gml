@@ -13,4 +13,3 @@ vsp = lengthdir_y(pMagnitude * walksp,pDirection);
 x += hsp;
 y += vsp;
 
-//test comment
