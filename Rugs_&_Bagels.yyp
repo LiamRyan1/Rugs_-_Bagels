@@ -38,8 +38,14 @@
     {"id":{"name":"obj_Player","path":"objects/obj_Player/obj_Player.yy",},},
     {"id":{"name":"Room1","path":"rooms/Room1/Room1.yy",},},
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
     {"id":{"name":"Room2","path":"rooms/Room2/Room2.yy",},},
     {"id":{"name":"sExit","path":"sprites/sExit/sExit.yy",},},
+=======
+    {"id":{"name":"MACROS","path":"scripts/MACROS/MACROS.yy",},},
+    {"id":{"name":"PlayerCollision","path":"scripts/PlayerCollision/PlayerCollision.yy",},},
+    {"id":{"name":"sCol","path":"sprites/sCol/sCol.yy",},},
+>>>>>>> Stashed changes
 =======
     {"id":{"name":"MACROS","path":"scripts/MACROS/MACROS.yy",},},
     {"id":{"name":"PlayerCollision","path":"scripts/PlayerCollision/PlayerCollision.yy",},},
