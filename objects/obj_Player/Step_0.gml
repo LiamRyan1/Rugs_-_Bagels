@@ -13,5 +13,22 @@ vSpeed = lengthdir_y(pMagnitude * walksp,pDirection);
 
 // This will handle collision and movement - Check scripts
 var collisionHappened = PlayerCollision();
-//x += hsp;
-//y += vsp;
+
+//Animating Playersprite
+
+//Update sprite index
+var _oldSprite = sprite_index;
+//when moving
+if(pMagnitude != 0)
+{
+	//holds angle player is moving in
+	direction = pDirection;
+	sprite_index = spriteRun;
+}
+else sprite_index = spriteIdle;
+//reset local frame on sprite switch to start on first frame
+if(_oldSprite != sprite_index) local_Frame = 0;
+
+//update image index
+PlayerAnimation();
+
