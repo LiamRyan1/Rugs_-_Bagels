@@ -1,3 +1,3 @@
-targetRoom = Room1;
+targetRoom = homeVillage;
 targetX = 287;
 targetY = 160;
