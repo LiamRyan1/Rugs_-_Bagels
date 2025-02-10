@@ -5,7 +5,7 @@ image_speed = 0;
 //h = horizontal  v = vertical  grv = gravity  sp = speed
 hSpeed = 0;
 vSpeed = 0;
-walksp = 4;//4px
+walksp = 2;//4px
 
 spriteRun = sPlayerRunning;
 spriteIdle = sPlayer;
