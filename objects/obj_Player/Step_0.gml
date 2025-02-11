@@ -27,7 +27,7 @@ if(pMagnitude != 0)
 }
 else sprite_index = spriteIdle;
 //reset local frame on sprite switch to start on first frame
-if(_oldSprite != sprite_index) local_Frame = 0;
+if(_oldSprite != sprite_index) localFrame = 0;
 
 //update image index
 PlayerAnimation();
