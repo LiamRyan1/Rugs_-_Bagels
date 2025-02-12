@@ -50,6 +50,7 @@
     {"id":{"name":"sButton","path":"sprites/sButton/sButton.yy",},},
     {"id":{"name":"sCol","path":"sprites/sCol/sCol.yy",},},
     {"id":{"name":"sExit","path":"sprites/sExit/sExit.yy",},},
+    {"id":{"name":"sGold","path":"sprites/sGold/sGold.yy",},},
     {"id":{"name":"sHealthPotion","path":"sprites/sHealthPotion/sHealthPotion.yy",},},
     {"id":{"name":"sPlayer","path":"sprites/sPlayer/sPlayer.yy",},},
     {"id":{"name":"sPlayerRunning","path":"sprites/sPlayerRunning/sPlayerRunning.yy",},},
