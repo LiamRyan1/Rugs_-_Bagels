@@ -18,8 +18,8 @@
   "resourceType":"GMTileSet",
   "resourceVersion":"2.0",
   "spriteId":{
-    "name":"basicColours",
-    "path":"sprites/basicColours/basicColours.yy",
+    "name":"sbasicColours",
+    "path":"sprites/sbasicColours/sbasicColours.yy",
   },
   "spriteNoExport":false,
   "textureGroupId":{
