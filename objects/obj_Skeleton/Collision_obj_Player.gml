@@ -1,0 +1,1 @@
+NewEncounter([global.enemies.Skeleton], sBattleBackground1);
