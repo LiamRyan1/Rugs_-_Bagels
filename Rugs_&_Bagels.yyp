@@ -43,6 +43,7 @@
     {"id":{"name":"rm_Forest","path":"rooms/rm_Forest/rm_Forest.yy",},},
     {"id":{"name":"rm_Menu","path":"rooms/rm_Menu/rm_Menu.yy",},},
     {"id":{"name":"rm_Village","path":"rooms/rm_Village/rm_Village.yy",},},
+    {"id":{"name":"GameData","path":"scripts/GameData/GameData.yy",},},
     {"id":{"name":"MACROS","path":"scripts/MACROS/MACROS.yy",},},
     {"id":{"name":"PlayerAnimation","path":"scripts/PlayerAnimation/PlayerAnimation.yy",},},
     {"id":{"name":"PlayerCollision","path":"scripts/PlayerCollision/PlayerCollision.yy",},},
