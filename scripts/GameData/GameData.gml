@@ -1,23 +1,33 @@
 //struct player data
-global.player ={
+global.party =
+[
+	{
 	name: "Player1",
 	Level: 1,
 	baseStats: { Vitality: 10, Strength: 10, Dexterity: 10, Magic: 10,Spirit: 10},
 	scaling: { Vitality: 2, Strength: 2, Dexterity: 2, Magic: 1,Spirit: 1},
 	Sprites : {idle: sPlayer},
 	actions: []
-};
+	},
+];
 //player true scaled stats
-global.player.Vitality = global.player.baseStats.Vitality + (global.player.scaling.Vitality * (global.player.Level - 1));
-global.player.Strength = global.player.baseStats.Strength + (global.player.scaling.Strength * (global.player.Level - 1));
-global.player.Dexterity =global.player.baseStats.Dexterity + (global.player.scaling.Dexterity * (global.player.Level - 1));
-global.player.Magic = global.player.baseStats.Magic + (global.player.scaling.Magic * (global.player.Level - 1));
-global.player.Spirit =global.player.baseStats.Spirit + (global.player.scaling.Spirit * (global.player.Level - 1));
-//player derived stats
-global.player.hpMax = (global.player.Vitality+global.player.Strength+global.player.Dexterity)/3;
-global.player.hp = global.player.hpMax;
-global.player.mpMax =(global.player.Magic+global.player.Spirit)/2;
-global.player.mp = global.player.mpMax;
+for(var i = 0; i < array_length(global.party); i++)
+{
+	var _curPartyMember = global.party[i];
+	
+	//player true scaled stats
+	 _curPartyMember.Vitality =  _curPartyMember.baseStats.Vitality + ( _curPartyMember.scaling.Vitality * ( _curPartyMember.Level - 1));
+	 _curPartyMember.Strength =  _curPartyMember.baseStats.Strength + ( _curPartyMember.scaling.Strength * ( _curPartyMember.Level - 1));
+	 _curPartyMember.Dexterity =  _curPartyMember.baseStats.Dexterity + ( _curPartyMember.scaling.Dexterity * ( _curPartyMember.Level - 1));
+	 _curPartyMember.Magic =  _curPartyMember.baseStats.Magic + ( _curPartyMember.scaling.Magic * ( _curPartyMember.Level - 1));
+	 _curPartyMember.Spirit = _curPartyMember.baseStats.Spirit + ( _curPartyMember.scaling.Spirit * ( _curPartyMember.Level - 1));
+	 
+	//player derived stats
+	 _curPartyMember.hpMax = round(( _curPartyMember.Vitality+ _curPartyMember.Strength+ _curPartyMember.Dexterity)/3);
+	 _curPartyMember.hp =  _curPartyMember.hpMax;
+	 _curPartyMember.mpMax =round(( _curPartyMember.Magic+ _curPartyMember.Spirit)/2);
+	 _curPartyMember.mp =  _curPartyMember.mpMax;
+}
 
 
 //enemy data

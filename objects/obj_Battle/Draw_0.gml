@@ -43,27 +43,30 @@ for(var i = 0; (i < array_length(enemyUnits)) && (_drawn < 3); i++)
 	}
 }
 
-//draw player name
-draw_set_halign(fa_left);
-draw_set_valign(fa_top);
-draw_set_color(c_gray);
-if(player.id == _unitWithCurrentTurn) draw_set_color(c_yellow);
-if(player.hp <= 0) draw_set_color(c_red);	
-draw_text(x+COLUMN_NAME,y+127+(i*12),player.name);
-draw_set_halign(fa_right);
+//draw party info
+for(var i = 0; i < array_length(partyUnits); i++)
+{
+	var _partyUnit = partyUnits[i];
+	draw_set_halign(fa_left);
+	draw_set_valign(fa_top);
+	draw_set_color(c_gray);
+	if(_partyUnit.id == _unitWithCurrentTurn) draw_set_color(c_yellow);
+	if(_partyUnit.hp <= 0) draw_set_color(c_red);	
+	draw_text(x+COLUMN_NAME,y+135+(i*12),_partyUnit.name);
+	draw_set_halign(fa_right);
 
-//draw health
-draw_set_color(c_gray);
-if(player.hp < (player.hpMax * 0.5)) draw_set_color(c_orange) ;
-if(player.hp <= 0) draw_set_color(c_red);	
-draw_text(x+COLUMN_HP+20,y+127+(i*12),string(player.hp) + "/" + string(player.hpMax));
+	//draw health
+	draw_set_color(c_gray);
+	if(_partyUnit.hp < (_partyUnit.hpMax * 0.5)) draw_set_color(c_orange) ;
+	if(_partyUnit.hp <= 0) draw_set_color(c_red);	
+	draw_text(x+COLUMN_HP+25,y+135+(i*12),string(_partyUnit.hp) + "/" + string(_partyUnit.hpMax));
 
-//draw mp
-draw_set_color(c_gray);
-if(player.mp < (player.mpMax * 0.5)) draw_set_color(c_orange) ;
-if(player.mp <= 0) draw_set_color(c_red);	
-draw_text(x+COLUMN_MP+20,y+127+(i*12),string(player.mp) + "/" + string(player.mpMax));
-
+	//draw mp
+	draw_set_color(c_gray);
+	if(_partyUnit.mp < (_partyUnit.mpMax * 0.5)) draw_set_color(c_orange) ;
+	if(_partyUnit.mp <= 0) draw_set_color(c_red);	
+	draw_text(x+COLUMN_MP+25,y+135+(i*12),string(_partyUnit.mp) + "/" + string(_partyUnit.mpMax));
+}
 //Reset draw 
 draw_set_color(c_white);
 draw_set_halign(fa_left);
