@@ -10,3 +10,4 @@ walksp = 2;//4px
 spriteRun = sPlayerRunning;
 spriteIdle = sPlayer;
 localFrame = 0;
+
