@@ -2,7 +2,7 @@
 global.player ={
 	name: "Player1",
 	Level: 1,
-	baseStats: { Vitality: 10, Strength: 10, Dexterity: 11, Magic: 10,Spirit: 10},
+	baseStats: { Vitality: 10, Strength: 10, Dexterity: 10, Magic: 10,Spirit: 10},
 	scaling: { Vitality: 2, Strength: 2, Dexterity: 2, Magic: 1,Spirit: 1},
 	Sprites : {idle: sPlayer},
 	actions: []
@@ -28,7 +28,7 @@ global.enemies =
 		//May change these variables to be a range rather then set 
 		name: "Skeleton",
 		Level: 1,
-		baseStats: { Vitality: 10, Strength: 10, Dexterity: 10, Magic:0,Spirit:0,},
+		baseStats: { Vitality: 10, Strength: 10, Dexterity: 11, Magic:0,Spirit:0,},
 		scaling: { Vitality: 2, Strength: 2, Dexterity: 2, Magic: 0,Spirit:0 },
 		Sprites : {idle: sSkeleton1},
 		actions: [],
