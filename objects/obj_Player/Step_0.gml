@@ -32,3 +32,4 @@ if(_oldSprite != sprite_index) localFrame = 0;
 //update image index
 PlayerAnimation();
 
+
