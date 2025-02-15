@@ -1,8 +1,8 @@
 //struct player data
 global.player ={
-	Name: "Player1",
+	name: "Player1",
 	Level: 1,
-	baseStats: { Vitality: 10, Strength: 10, Dexterity: 10, Magic: 10,Spirit: 10},
+	baseStats: { Vitality: 10, Strength: 10, Dexterity: 11, Magic: 10,Spirit: 10},
 	scaling: { Vitality: 2, Strength: 2, Dexterity: 2, Magic: 1,Spirit: 1},
 	Sprites : {idle: sPlayer},
 	actions: []
@@ -43,25 +43,25 @@ global.enemies =
 //calcultate enemy scaled stats and derived stats
 
 //get an array of all enemy types in the game
-var enemyTypes = variable_struct_get_names(global.enemies)
+var _enemyTypes = variable_struct_get_names(global.enemies)
 //show_debug_message("Enemy Types: " + string(enemyTypes));
-for(var i = 0; i < array_length(enemyTypes); i++){
-	var curEnemyType = enemyTypes[i];
+for(var i = 0; i < array_length(_enemyTypes); i++){
+	var _curEnemyType = _enemyTypes[i];
 	//show_debug_message("Current Enemy Type: " + string(curEnemyType));
 	//access data of current enemy
-	var enemy = struct_get(global.enemies,curEnemyType); 
+	var _enemy = struct_get(global.enemies,_curEnemyType); 
 	
 	//enemy scaled stats 
-	enemy.Vitality = enemy.baseStats.Vitality + (enemy.scaling.Vitality * (enemy.Level - 1));
-	enemy.Strength = enemy.baseStats.Strength + (enemy.scaling.Strength * (enemy.Level - 1));
-	enemy.Dexterity = enemy.baseStats.Dexterity + (enemy.scaling.Dexterity * (enemy.Level - 1));
-	enemy.Magic = enemy.baseStats.Magic + (enemy.scaling.Magic * (enemy.Level - 1));
-	enemy.Spirit = enemy.baseStats.Spirit + (enemy.scaling.Spirit * (enemy.Level - 1));
+	_enemy.Vitality = _enemy.baseStats.Vitality + (_enemy.scaling.Vitality * (_enemy.Level - 1));
+	_enemy.Strength = _enemy.baseStats.Strength + (_enemy.scaling.Strength * (_enemy.Level - 1));
+	_enemy.Dexterity = _enemy.baseStats.Dexterity + (_enemy.scaling.Dexterity * (_enemy.Level - 1));
+	_enemy.Magic = _enemy.baseStats.Magic + (_enemy.scaling.Magic * (_enemy.Level - 1));
+	_enemy.Spirit = _enemy.baseStats.Spirit + (_enemy.scaling.Spirit * (_enemy.Level - 1));
 	
 	//enemy derived stats
-	enemy.hpMax = (enemy.Vitality + enemy.Strength + enemy.Dexterity) / 3;
-    enemy.hp = enemy.hpMax;
-	enemy.mpMax =(enemy.Magic+enemy.Spirit)/2;
-	enemy.mp = enemy.mpMax;
-    enemy.xpValue = enemy.xpMultiplier * enemy.Level;
+	_enemy.hpMax = (_enemy.Vitality + _enemy.Strength + _enemy.Dexterity) / 3;
+    _enemy.hp = _enemy.hpMax;
+	_enemy.mpMax =(_enemy.Magic+_enemy.Spirit)/2;
+	_enemy.mp = _enemy.mpMax;
+    _enemy.xpValue = _enemy.xpMultiplier * _enemy.Level;
 }
