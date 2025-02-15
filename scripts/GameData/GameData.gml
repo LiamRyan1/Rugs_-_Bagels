@@ -1,8 +1,31 @@
 global.actionLibrary =
 {
+	attack:
+	{
+		name: "Physical Attack",
+		description: "{0} attacks!",
+		subMenu: -1,
+		targetRequired: true,
+		targetEnemyByDefault: true,
+		targetAll: MODE.NEVER,
+		userAnimation : "idle",
+		effectSprite : sAttackSlash,
+		effectOnTarget: MODE.ALWAYS,
+		func: function(_user,_targets)
+		{
+			var _damage = ceil(_user.Strength + random_range(-_user.Dexterity * 0.25, _user.Dexterity  * 0.25));
+			with(_targets[0]) hp = max(0, hp - _damage);
+			show_debug_message("Getting called?");
+		}
+	}
 }
 
-
+enum MODE
+{
+	NEVER = 0,
+	ALWAYS = 1,
+	VARIES = 2
+}
 
 
 
@@ -14,8 +37,8 @@ global.party =
 	Level: 1,
 	baseStats: { Vitality: 10, Strength: 10, Dexterity: 10, Magic: 10,Spirit: 10},
 	scaling: { Vitality: 2, Strength: 2, Dexterity: 2, Magic: 1,Spirit: 1},
-	Sprites : {idle: sPlayer},
-	actions: []
+	Sprites : {idle: sPlayerIdle,},
+	actions: [],	
 	},
 ];
 //player true scaled stats
@@ -31,7 +54,7 @@ for(var i = 0; i < array_length(global.party); i++)
 	 _curPartyMember.Spirit = _curPartyMember.baseStats.Spirit + ( _curPartyMember.scaling.Spirit * ( _curPartyMember.Level - 1));
 	 
 	//player derived stats
-	 _curPartyMember.hpMax = round(( _curPartyMember.Vitality+ _curPartyMember.Strength+ _curPartyMember.Dexterity)/3);
+	 _curPartyMember.hpMax = round(( _curPartyMember.Vitality+ _curPartyMember.Strength+ _curPartyMember.Dexterity)/3*10);
 	 _curPartyMember.hp =  _curPartyMember.hpMax;
 	 _curPartyMember.mpMax =round(( _curPartyMember.Magic+ _curPartyMember.Spirit)/2);
 	 _curPartyMember.mp =  _curPartyMember.mpMax;
@@ -46,9 +69,9 @@ global.enemies =
 		//May change these variables to be a range rather then set 
 		name: "Skeleton",
 		Level: 1,
-		baseStats: { Vitality: 10, Strength: 10, Dexterity: 11, Magic:0,Spirit:0,},
+		baseStats: { Vitality: 10, Strength: 10, Dexterity: 10, Magic:0,Spirit:0,},
 		scaling: { Vitality: 2, Strength: 2, Dexterity: 2, Magic: 0,Spirit:0 },
-		Sprites : {idle: sSkeleton1},
+		Sprites : {idle: sSkeletonIdle},
 		actions: [],
 		xpMultiplier: 1,
 		AIscript : function()
@@ -77,9 +100,9 @@ for(var i = 0; i < array_length(_enemyTypes); i++){
 	_enemy.Spirit = _enemy.baseStats.Spirit + (_enemy.scaling.Spirit * (_enemy.Level - 1));
 	
 	//enemy derived stats
-	_enemy.hpMax = (_enemy.Vitality + _enemy.Strength + _enemy.Dexterity) / 3;
+	_enemy.hpMax = ((_enemy.Vitality + _enemy.Strength + _enemy.Dexterity) / 3)*5;
     _enemy.hp = _enemy.hpMax;
-	_enemy.mpMax =(_enemy.Magic+_enemy.Spirit)/2;
+	_enemy.mpMax =((_enemy.Magic+_enemy.Spirit)/2)*5;
 	_enemy.mp = _enemy.mpMax;
     _enemy.xpValue = _enemy.xpMultiplier * _enemy.Level;
 }

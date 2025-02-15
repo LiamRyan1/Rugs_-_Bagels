@@ -1,4 +1,4 @@
-function NewEncounter(_enemies,_bg){
+function NewEncounter(_enemies,_bg,){
 	//move view away from the room the player is in
 	instance_create_depth
 	(
