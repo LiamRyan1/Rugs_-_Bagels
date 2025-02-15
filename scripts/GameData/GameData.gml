@@ -1,4 +1,12 @@
-//struct player data
+global.actionLibrary =
+{
+}
+
+
+
+
+
+//struct party data
 global.party =
 [
 	{
