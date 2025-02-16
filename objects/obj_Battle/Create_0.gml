@@ -55,33 +55,69 @@ RefreshRenderOrder();
 //Combat States
 function BattleStateSelectAction()
 {
-	//get current unit
-	var _unit = unitTurnOrder[turn];
-	//check unit status
-	if(!instance_exists(_unit) || (_unit.hp <=0))
+	if(!instance_exists(obj_Menu))
 	{
-		battleState = BattleStateVictoryCheck;
-		exit;
-	}
-	//check if unit is a player character
-	if(_unit.object_index == obj_BattleUnitPartyMembers)
-	{
-			//attack random enemy memeber
-			var _action = global.actionLibrary.attack;
-			//remove dead charcters from possible targets
-			var _possibleTargets = array_filter(obj_Battle.enemyUnits,function(_unit,_index)
-			{
-				return(_unit.hp > 0);
-			});
-			//choose target at random from the list
-			var _target = _possibleTargets[irandom(array_length(_possibleTargets)-1)];
-			BeginAction(_unit.id,_action,_target);
-	}
-	else
-	{
-		//if unit is AI controlled
-		var _enemyAction = _unit.AIscript();
-		if(_enemyAction != -1) BeginAction(_unit.id,_enemyAction[0],_enemyAction[1])
+		//get current unit
+		var _unit = unitTurnOrder[turn];
+		//check unit status
+		if(!instance_exists(_unit) || (_unit.hp <=0))
+		{
+			battleState = BattleStateVictoryCheck;
+			exit;
+		}
+		//check if unit is a player character
+		if(_unit.object_index == obj_BattleUnitPartyMembers)
+		{
+				var _menuOptions = [];
+				var _subMenus = {};
+				
+				var _actionList = _unit.actions;
+				
+				for(var i = 0; i < array_length(_actionList); i++)
+				{
+					var _action = _actionList[i];
+					var _available = true; //will need to check mp
+					var _nameAndCount = _action.name; //may need to modify to include item count if action action is a item
+					show_debug_message("Action: " + string(_action.name) + " | subMenu: " + string(_action.subMenu));
+					if(_action.subMenu == -1)
+					{
+						array_push(_menuOptions,[_nameAndCount,MenuSelectAction,[_unit,_action],_available]);
+						show_debug_message("top lvl menu pushed");
+					}
+					else
+					{
+						//create or add to a submenu
+						if(is_undefined(_subMenus[$ _action.subMenu]))
+						{
+							variable_struct_set(_subMenus,_action.subMenu,[[_nameAndCount,MenuSelectAction,[_unit,_action],_available]])
+						}
+						else
+						{	
+							array_push(_subMenus[$ _action.subMenu],[_nameAndCount,MenuSelectAction,[_unit,_action],_available]);
+						}
+					}
+				}	
+				//turn sub menus into an array
+				var _subMenusArray = variable_struct_get_names(_subMenus);
+				for(var i = 0; i< array_length(_subMenusArray); i++)
+				{
+					
+					//sort submenus contents here if we decide to 
+					//here
+					
+					//add back option to each submenu
+					array_push(_subMenus[$ _subMenusArray[i]],["Back",MenuGoBack,-1,true]);
+					//add submenu to main top lvl menu
+					array_push(_menuOptions,[_subMenusArray[i],SubMenu,[_subMenus[$ _subMenusArray[i]]],true]);
+				}
+				Menu(x+10,y+10,_menuOptions,,,60);
+			}	
+		else
+		{
+			//if unit is AI controlled
+			var _enemyAction = _unit.AIscript();
+			if(_enemyAction != -1) BeginAction(_unit.id,_enemyAction[0],_enemyAction[1])
+		}
 	}
 }
 function BeginAction(_user,_action,_targets)

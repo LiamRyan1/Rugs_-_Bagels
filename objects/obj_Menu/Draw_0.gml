@@ -1,10 +1,11 @@
+draw_set_alpha(0.5);
 draw_sprite_stretched(sScreen,0,x,y,widthFull,heightFull);
 draw_set_color(c_white);
 draw_set_font(Fnt_Battle_Screen);
 draw_set_halign(fa_left);
 draw_set_valign(fa_top);
-
 var _desc = (description != -1);
+draw_set_alpha(1);
 //how far past the top of the menu u are
 var _scrollPush = max(0,hover -(visibleOptionsMax -1));
 for(line = 0; line<(visibleOptionsMax + _desc); line++)

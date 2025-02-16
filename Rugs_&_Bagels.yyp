@@ -67,6 +67,7 @@
     {"id":{"name":"PlayerAnimation","path":"scripts/PlayerAnimation/PlayerAnimation.yy",},},
     {"id":{"name":"PlayerCollision","path":"scripts/PlayerCollision/PlayerCollision.yy",},},
     {"id":{"name":"s","path":"sprites/s/s.yy",},},
+    {"id":{"name":"sAttackLightning","path":"sprites/sAttackLightning/sAttackLightning.yy",},},
     {"id":{"name":"sAttackSlash","path":"sprites/sAttackSlash/sAttackSlash.yy",},},
     {"id":{"name":"sbasicColours","path":"sprites/sbasicColours/sbasicColours.yy",},},
     {"id":{"name":"sBattleBackground1","path":"sprites/sBattleBackground1/sBattleBackground1.yy",},},

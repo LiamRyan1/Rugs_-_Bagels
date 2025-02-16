@@ -17,6 +17,24 @@ global.actionLibrary =
 			BattleChangeHp(_targets[0],-_damage,0)
 			show_debug_message("Getting called?");
 		}
+	},
+	lightning:
+	{
+		name: "Lightning",
+		description: "{0} casts Lightning!",
+		subMenu: "Magic",
+		targetRequired: true,
+		targetEnemyByDefault: true,
+		targetAll: MODE.NEVER,
+		userAnimation: "idle",
+		effectSprite: sAttackLightning,
+		effectOnTarget: MODE.ALWAYS,
+		mpCost: 5,
+		func: function(_user,_targets)
+		{
+			var _damage = irandom_range(15,20);
+			BattleChangeHp(_targets[0],-_damage,0)
+		}
 	}
 }
 
@@ -35,19 +53,12 @@ global.party =
 	{
 	name: "Player1",
 	Level: 1,
-	baseStats: { Vitality: 10, Strength: 10, Dexterity: 10, Magic: 10,Spirit: 10},
+	baseStats: { Vitality: 10, Strength: 10, Dexterity: 20, Magic: 10,Spirit: 10},
 	scaling: { Vitality: 2, Strength: 2, Dexterity: 2, Magic: 1,Spirit: 1},
 	Sprites : {idle: sPlayerIdle,down: sPlayerDead},
-	actions: [],	
+	actions: [global.actionLibrary.lightning,global.actionLibrary.attack]
 	},
-	{
-	name: "Player2",
-	Level: 1,
-	baseStats: { Vitality: 10, Strength: 10, Dexterity: 10, Magic: 10,Spirit: 10},
-	scaling: { Vitality: 2, Strength: 2, Dexterity: 2, Magic: 1,Spirit: 1},
-	Sprites : {idle: sPlayerIdle,down: sPlayerDead},
-	actions: [],	
-	},
+
 ];
 //player true scaled stats
 for(var i = 0; i < array_length(global.party); i++)
