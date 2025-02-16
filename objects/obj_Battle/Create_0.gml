@@ -63,7 +63,26 @@ function BattleStateSelectAction()
 		battleState = BattleStateVictoryCheck;
 		exit;
 	}
-	BeginAction(_unit.id,global.actionLibrary.attack,_unit.id);
+	//check if unit is a player character
+	if(_unit.object_index == obj_BattleUnitPartyMembers)
+	{
+			//attack random enemy memeber
+			var _action = global.actionLibrary.attack;
+			//remove dead charcters from possible targets
+			var _possibleTargets = array_filter(obj_Battle.enemyUnits,function(_unit,_index)
+			{
+				return(_unit.hp > 0);
+			});
+			//choose target at random from the list
+			var _target = _possibleTargets[irandom(array_length(_possibleTargets)-1)];
+			BeginAction(_unit.id,_action,_target);
+	}
+	else
+	{
+		//if unit is AI controlled
+		var _enemyAction = _unit.AIscript();
+		if(_enemyAction != -1) BeginAction(_unit.id,_enemyAction[0],_enemyAction[1])
+	}
 }
 function BeginAction(_user,_action,_targets)
 {

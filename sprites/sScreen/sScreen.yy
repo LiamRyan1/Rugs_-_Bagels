@@ -44,8 +44,8 @@
   },
   "origin":0,
   "parent":{
-    "name":"Combat",
-    "path":"folders/Sprites/Combat.yy",
+    "name":"Menu's",
+    "path":"folders/Sprites/Menu's.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

@@ -80,11 +80,21 @@ global.enemies =
 		baseStats: { Vitality: 10, Strength: 10, Dexterity: 15, Magic:0,Spirit:0,},
 		scaling: { Vitality: 2, Strength: 2, Dexterity: 2, Magic: 0,Spirit:0 },
 		Sprites : {idle: sSkeletonIdle},
-		actions: [],
+		actions: [global.actionLibrary.attack],
 		xpMultiplier: 1,
 		AIscript : function()
 		{
 			//enemy  turn ai
+			//attack random party memeber
+			var _action = actions[0];
+			//remove dead charcters from possible targets
+			var _possibleTargets = array_filter(obj_Battle.partyUnits,function(_unit,_index)
+			{
+				return(_unit.hp > 0);
+			});
+			//choose target at random from the list
+			var _target = _possibleTargets[irandom(array_length(_possibleTargets)-1)];
+			return [_action,_target];
 		}
 	}
 }
