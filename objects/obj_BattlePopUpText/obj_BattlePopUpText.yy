@@ -1,18 +1,19 @@
 {
   "$GMObject":"",
-  "%Name":"obj_BattleUnitPlayer",
-  "eventList":[],
+  "%Name":"obj_BattlePopUpText",
+  "eventList":[
+    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
+    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":3,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
+    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":8,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
+  ],
   "managed":true,
-  "name":"obj_BattleUnitPlayer",
+  "name":"obj_BattlePopUpText",
   "overriddenProperties":[],
   "parent":{
     "name":"Combat",
     "path":"folders/Objects/Combat.yy",
   },
-  "parentObjectId":{
-    "name":"obj_BattleUnit",
-    "path":"objects/obj_BattleUnit/obj_BattleUnit.yy",
-  },
+  "parentObjectId":null,
   "persistent":false,
   "physicsAngularDamping":0.1,
   "physicsDensity":0.5,

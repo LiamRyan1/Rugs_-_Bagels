@@ -35,6 +35,7 @@ draw_set_color(c_gray);
 for(var i = 0; (i < array_length(enemyUnits)) && (_drawn < 3); i++)
 {
 	var _enemyUnit = enemyUnits[i];
+	draw_set_color(c_gray);
 	if(_enemyUnit.hp > 0)
 	{
 		_drawn++;

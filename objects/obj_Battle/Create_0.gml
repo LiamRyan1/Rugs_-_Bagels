@@ -22,7 +22,7 @@ for(var i = 0; i<array_length(enemies); i++)
 //party units
 for(var i = 0; i< array_length(global.party); i++)
 {
-	partyUnits[i] = instance_create_depth(x+70+(i*10),y+68+(i*15),depth-10,obj_BattleUnitPlayer,global.party[i]);
+	partyUnits[i] = instance_create_depth(x+70+(i*10),y+68+(i*15),depth-10,obj_BattleUnitPartyMembers,global.party[i]);
 	array_push(units,partyUnits[i]);
 }
 

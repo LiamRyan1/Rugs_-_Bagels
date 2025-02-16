@@ -14,7 +14,7 @@ global.actionLibrary =
 		func: function(_user,_targets)
 		{
 			var _damage = ceil(_user.Strength + random_range(-_user.Dexterity * 0.25, _user.Dexterity  * 0.25));
-			with(_targets[0]) hp = max(0, hp - _damage);
+			BattleChangeHp(_targets[0],-_damage,0)
 			show_debug_message("Getting called?");
 		}
 	}
@@ -37,7 +37,15 @@ global.party =
 	Level: 1,
 	baseStats: { Vitality: 10, Strength: 10, Dexterity: 10, Magic: 10,Spirit: 10},
 	scaling: { Vitality: 2, Strength: 2, Dexterity: 2, Magic: 1,Spirit: 1},
-	Sprites : {idle: sPlayerIdle,},
+	Sprites : {idle: sPlayerIdle,down: sPlayerDead},
+	actions: [],	
+	},
+	{
+	name: "Player2",
+	Level: 1,
+	baseStats: { Vitality: 10, Strength: 10, Dexterity: 10, Magic: 10,Spirit: 10},
+	scaling: { Vitality: 2, Strength: 2, Dexterity: 2, Magic: 1,Spirit: 1},
+	Sprites : {idle: sPlayerIdle,down: sPlayerDead},
 	actions: [],	
 	},
 ];
@@ -69,7 +77,7 @@ global.enemies =
 		//May change these variables to be a range rather then set 
 		name: "Skeleton",
 		Level: 1,
-		baseStats: { Vitality: 10, Strength: 10, Dexterity: 10, Magic:0,Spirit:0,},
+		baseStats: { Vitality: 10, Strength: 10, Dexterity: 15, Magic:0,Spirit:0,},
 		scaling: { Vitality: 2, Strength: 2, Dexterity: 2, Magic: 0,Spirit:0 },
 		Sprites : {idle: sSkeletonIdle},
 		actions: [],
