@@ -61,6 +61,43 @@ function MenuGoBack()
 function MenuSelectAction(_user,_action)
 {
 	with(obj_Menu) active = false;
-	with (obj_Battle) BeginAction(_user,_action,_user);
-	with(obj_Menu) instance_destroy();
+	//activate the targettogm cursor if needed otherwise begin action
+	with (obj_Battle) 
+	{
+		if(_action.targetRequired)
+		{
+			with(cursor)
+			{
+				active = true;
+				activeAction = _action;
+				targetAll = _action.targetAll;
+				if(targetAll == MODE.VARIES) targetAll = true;
+				activeUser = _user;
+				//target enemys
+				if(_action.targetEnemyByDefault)
+				{
+					targetIndex = 0;
+					targetSide = obj_Battle.enemyUnits;
+					activeTarget = obj_Battle.enemyUnits[targetIndex]
+				}
+				//target allies
+				else
+				{
+					targetSide = obj_Battle.partyUnits;
+					activeTarget = activeUser;
+					var _findSelf = function(_element)
+					{
+						return(_element == activeTarget)
+					}
+					targetIndex = array_find_index(obj_Battle.partyUnits,_findSelf);
+				}
+			}
+		}
+		else
+		{
+			//if no targets required
+			BeginAction(_user,_action,-1);
+			with(obj_Menu) instance_destroy();
+		}
+	}
 }

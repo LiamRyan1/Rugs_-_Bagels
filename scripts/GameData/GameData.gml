@@ -25,15 +25,18 @@ global.actionLibrary =
 		subMenu: "Magic",
 		targetRequired: true,
 		targetEnemyByDefault: true,
-		targetAll: MODE.NEVER,
+		targetAll: MODE.VARIES,
 		userAnimation: "idle",
 		effectSprite: sAttackLightning,
 		effectOnTarget: MODE.ALWAYS,
 		mpCost: 5,
 		func: function(_user,_targets)
 		{
-			var _damage = irandom_range(15,20);
-			BattleChangeHp(_targets[0],-_damage,0)
+			for(var i = 0; i < array_length(_targets); i++)
+			{
+				var _damage = irandom_range(15,20);
+				BattleChangeHp(_targets[i],-_damage,0)
+			}
 		}
 	}
 }

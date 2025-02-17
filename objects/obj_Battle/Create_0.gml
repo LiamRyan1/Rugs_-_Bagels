@@ -13,6 +13,19 @@ currentUser = noone;
 currentAction = -1;
 currentTargets = noone;
 
+//targetting cursor
+cursor = 
+{
+	activeUser: noone,
+	activeTarget: noone,
+	activeAction : -1,
+	targetSide: -1,
+	targetIndex: -1,
+	targetAll : false,
+	confirmDelay: 0,
+	active : false
+};
+
 //ememies units
 for(var i = 0; i<array_length(enemies); i++)
 {
