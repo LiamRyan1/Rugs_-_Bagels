@@ -91,11 +91,11 @@ function BattleStateSelectAction()
 					var _action = _actionList[i];
 					var _available = true; //will need to check mp
 					var _nameAndCount = _action.name; //may need to modify to include item count if action action is a item
-					show_debug_message("Action: " + string(_action.name) + " | subMenu: " + string(_action.subMenu));
+					//show_debug_message("Action: " + string(_action.name) + " | subMenu: " + string(_action.subMenu));
 					if(_action.subMenu == -1)
 					{
 						array_push(_menuOptions,[_nameAndCount,MenuSelectAction,[_unit,_action],_available]);
-						show_debug_message("top lvl menu pushed");
+						//show_debug_message("top lvl menu pushed");
 					}
 					else
 					{
@@ -151,7 +151,7 @@ function BeginAction(_user,_action,_targets)
 			image_speed = 1;
 		}
 	}
-	show_debug_message("Current frame: " + string(currentUser.image_index) + " / " + string(currentUser.image_number));
+	//show_debug_message("Current frame: " + string(currentUser.image_index) + " / " + string(currentUser.image_number));
 	battleState = BattleStatePerformAction;
 }
 function BattleStatePerformAction()
@@ -160,11 +160,11 @@ function BattleStatePerformAction()
 	//check if animation is still playing
 	if(currentUser.acting)
 	{
-		show_debug_message("Current frame: " + string(currentUser.image_index) + " / " + string(currentUser.image_number));
+		//show_debug_message("Current frame: " + string(currentUser.image_index) + " / " + string(currentUser.image_number));
 		//on animation end perform action effect
 		if(currentUser.image_index >= currentUser.image_number-1)
 		{
-			show_debug_message("Debug2");
+			
 			with(currentUser)
 			{
 				sprite_index = Sprites.idle;
@@ -200,15 +200,67 @@ function BattleStatePerformAction()
 			battleWaitTimeRemaining--;
 			if(battleWaitTimeRemaining == 0)
 			{
+				show_debug_message("calling battle victory check");
 				battleState = BattleStateVictoryCheck;
 			}
 		}
 	}
 }
+
+
 function BattleStateVictoryCheck()
 {
+	var _unit = unitTurnOrder[turn];
+	show_debug_message("Checking unit: " + string(_unit.name));
+	show_debug_message("Checking unit: " + string(_unit.hp));
+	
+	//check remaining enemies
+	aliveEnemies = 0;
+	for(var i = 0; i < array_length(enemyUnits); i++)
+	{
+		var _enemyUnit = enemyUnits[i];
+		show_debug_message("Checking alive enemies: " + string(_enemyUnit.name));
+		show_debug_message("Checking alive enemies health " + string(_enemyUnit.hp));
+		if(_enemyUnit.hp > 0 )
+		{
+			aliveEnemies++;
+		}
+	}
+	//if player wins
+	if(aliveEnemies == 0)
+	{
+		instance_activate_all();
+		instance_destroy(creator);
+		instance_destroy();
+		return
+			
+	}
+	//check remaining party memebers
+	aliveParty = 0;
+	for(var i = 0; i < array_length(partyUnits); i++)
+	{
+		var _partyUnit = partyUnits[i];
+		show_debug_message("Checking alive partyMembers: " + string( _partyUnit.name));
+		show_debug_message("Checking alive partyMembers health: " + string( _partyUnit.hp));
+		if(_partyUnit.hp > 0 )
+		{
+			aliveParty++;
+		}
+	}
+	//if player loses
+	if(aliveParty == 0)
+	{
+		game_restart();
+		return
+	}
+	
 	battleState = BattleStateTurnProgression;
+
 }
+	
+
+	
+
 function BattleStateTurnProgression()
 {
 	turnCount++;

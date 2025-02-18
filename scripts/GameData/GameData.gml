@@ -15,7 +15,6 @@ global.actionLibrary =
 		{
 			var _damage = ceil(_user.Strength + random_range(-_user.Dexterity * 0.25, _user.Dexterity  * 0.25));
 			BattleChangeHp(_targets[0],-_damage,0)
-			show_debug_message("Getting called?");
 		}
 	},
 	lightning:
@@ -34,7 +33,7 @@ global.actionLibrary =
 		{
 			for(var i = 0; i < array_length(_targets); i++)
 			{
-				var _damage = irandom_range(15,20);
+				var _damage = irandom_range(40,45);
 				BattleChangeHp(_targets[i],-_damage,0)
 			}
 		}
