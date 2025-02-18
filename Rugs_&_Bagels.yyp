@@ -89,6 +89,7 @@
     {"id":{"name":"sSkeleton1","path":"sprites/sSkeleton1/sSkeleton1.yy",},},
     {"id":{"name":"sSkeletonIdle","path":"sprites/sSkeletonIdle/sSkeletonIdle.yy",},},
     {"id":{"name":"sUpdatedTextures","path":"sprites/sUpdatedTextures/sUpdatedTextures.yy",},},
+    {"id":{"name":"sVillager1","path":"sprites/sVillager1/sVillager1.yy",},},
     {"id":{"name":"tCol","path":"tilesets/tCol/tCol.yy",},},
     {"id":{"name":"tColours","path":"tilesets/tColours/tColours.yy",},},
   ],
