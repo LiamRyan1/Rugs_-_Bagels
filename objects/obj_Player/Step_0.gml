@@ -4,6 +4,13 @@ var _key_right = keyboard_check(vk_right) || keyboard_check(ord("D"));
 var _key_up =   keyboard_check(vk_up)  ||keyboard_check(ord("W")) ;
 var _key_down = keyboard_check(vk_down) || keyboard_check(ord("S"));
 
+if (instance_exists(obj_Text)) {
+    show_debug_message("obj_Text exists in the game.");
+} else {
+    show_debug_message("ERROR: obj_Text DOES NOT EXIST at runtime!");
+}
+
+
 //player angle and magnitude
 var pDirection = point_direction(0,0,_key_right-_key_left,_key_down-_key_up);
 var pMagnitude = (_key_right-_key_left !=0) || (_key_down-_key_up != 0);
