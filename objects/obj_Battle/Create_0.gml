@@ -207,6 +207,50 @@ function BattleStatePerformAction()
 }
 function BattleStateVictoryCheck()
 {
+	var _unit = unitTurnOrder[turn];
+	show_debug_message("Checking unit: " + string(_unit.name));
+	show_debug_message("Checking unit: " + string(_unit.hp));
+	
+	//check remaining enemies
+	aliveEnemies = 0;
+	for(var i = 0; i < array_length(enemyUnits); i++)
+	{
+		var _enemyUnit = enemyUnits[i];
+		show_debug_message("Checking alive enemies: " + string(_enemyUnit.name));
+		show_debug_message("Checking alive enemies health " + string(_enemyUnit.hp));
+		if(_enemyUnit.hp > 0 )
+		{
+			aliveEnemies++;
+		}
+	}
+	//if player wins
+	if(aliveEnemies == 0)
+	{
+		instance_activate_all();
+		instance_destroy(creator);
+		instance_destroy();
+		return
+			
+	}
+	//check remaining party memebers
+	aliveParty = 0;
+	for(var i = 0; i < array_length(partyUnits); i++)
+	{
+		var _partyUnit = partyUnits[i];
+		show_debug_message("Checking alive partyMembers: " + string( _partyUnit.name));
+		show_debug_message("Checking alive partyMembers health: " + string( _partyUnit.hp));
+		if(_partyUnit.hp > 0 )
+		{
+			aliveParty++;
+		}
+	}
+	//if player loses
+	if(aliveParty == 0)
+	{
+		game_restart();
+		return
+	}
+	
 	battleState = BattleStateTurnProgression;
 }
 function BattleStateTurnProgression()

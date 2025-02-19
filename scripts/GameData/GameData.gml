@@ -34,7 +34,7 @@ global.actionLibrary =
 		{
 			for(var i = 0; i < array_length(_targets); i++)
 			{
-				var _damage = irandom_range(15,20);
+				var _damage = irandom_range(45,60);
 				BattleChangeHp(_targets[i],-_damage,0)
 			}
 		}
