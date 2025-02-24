@@ -58,10 +58,13 @@ global.party =
 	Level: 1,
 	baseStats: { Vitality: 10, Strength: 10, Dexterity: 20, Magic: 10,Spirit: 10},
 	scaling: { Vitality: 2, Strength: 2, Dexterity: 2, Magic: 1,Spirit: 1},
+	xpRequiredMultiplier:4,
+	currentXp:0,
 	Sprites : {idle: sPlayerIdle,down: sPlayerDead},
 	actions: [global.actionLibrary.lightning,global.actionLibrary.attack]
 	},
-
+	
+	
 ];
 //player true scaled stats
 for(var i = 0; i < array_length(global.party); i++)
@@ -80,6 +83,8 @@ for(var i = 0; i < array_length(global.party); i++)
 	 _curPartyMember.hp =  _curPartyMember.hpMax;
 	 _curPartyMember.mpMax =round(( _curPartyMember.Magic+ _curPartyMember.Spirit)/2);
 	 _curPartyMember.mp =  _curPartyMember.mpMax;
+	 //xp
+	_curPartyMember.xpRequired = _curPartyMember.xpRequiredMultiplier*_curPartyMember.Level
 }
 
 

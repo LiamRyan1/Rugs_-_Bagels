@@ -226,6 +226,25 @@ function BattleStateVictoryCheck()
 	//if player wins
 	if(aliveEnemies == 0)
 	{
+		xpForBattle = 0;
+		for(var i = 0; i < array_length(enemyUnits); i++)
+		{
+			var _enemyUnit = enemyUnits[i];
+			xpForBattle += _enemyUnit.xpValue;
+		}
+		show_debug_message("Xp gained = " + string(xpForBattle));
+		xpGained = xpForBattle/array_length(partyUnits);
+		for(var i = 0; i < array_length(global.party); i++)
+		{
+			var _partyUnit = partyUnits[i];
+			global.party[i].currentXp += xpGained;
+			show_debug_message(string(global.party[i].name) + " CURRENT Xp gained = " + string(global.party[i].currentXp ));
+			if(global.party[i].name == _partyUnit.name)
+			{
+				global.party[i].hp = _partyUnit.hp;
+			}
+		}
+		
 		instance_activate_all();
 		instance_destroy(creator);
 		instance_destroy();
