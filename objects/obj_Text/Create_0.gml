@@ -4,7 +4,7 @@
 x1 = RESOLUTION_W/2;
 y1 = RESOLUTION_H - 70;
 x2 = RESOLUTION_W/2;
-y2 = RESOLUTION_H;
+y2 = RESOLUTION_H/3;
 
 //X1 Grows to 0 and x2 grows to our width
 x1Target = 0;
