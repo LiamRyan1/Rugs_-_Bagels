@@ -275,6 +275,7 @@ function BattleStateVictoryCheck()
 	//if player loses
 	if(aliveParty == 0)
 	{
+
 		game_restart();
 		return
 	}

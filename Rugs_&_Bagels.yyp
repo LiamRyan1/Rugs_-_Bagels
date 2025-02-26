@@ -103,9 +103,9 @@
   "resourceType":"GMProject",
   "resourceVersion":"2.0",
   "RoomOrderNodes":[
+    {"roomId":{"name":"rm_Menu","path":"rooms/rm_Menu/rm_Menu.yy",},},
     {"roomId":{"name":"rm_Village","path":"rooms/rm_Village/rm_Village.yy",},},
     {"roomId":{"name":"rm_Forest","path":"rooms/rm_Forest/rm_Forest.yy",},},
-    {"roomId":{"name":"rm_Menu","path":"rooms/rm_Menu/rm_Menu.yy",},},
   ],
   "templateType":"game",
   "TextureGroups":[
