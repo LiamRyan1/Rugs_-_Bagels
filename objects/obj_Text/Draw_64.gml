@@ -19,6 +19,6 @@ draw_set_color(c_black);
 var _print = string_copy(message, 1, textProgress);
 
 // Draw text twice to give a shadow effect
-draw_text((x1 + x2) / 2, y + 30, _print);
+draw_text((x1 + x2) / 2, y1+ 30, _print);
 draw_set_color(c_white);
-draw_text((x1 + x2) / 2, y + 30, _print);
+draw_text((x1 + x2) / 2, y1 + 30, _print);

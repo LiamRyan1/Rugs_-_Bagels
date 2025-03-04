@@ -97,3 +97,14 @@ if(cursor.active)
 		}
 	}
 }
+
+//draw battle text
+if(battleText != "")
+{
+	var _w = string_width(battleText)+5;
+	draw_sprite_stretched(sScreen,0,x+160-round((_w*0.5)),y+15,_w,20);
+	draw_set_halign(fa_center);
+	draw_set_color(c_white);
+	draw_set_font(Fnt_Battle_Screen);
+	draw_text(x+160,y+20,battleText);
+}
