@@ -13,6 +13,7 @@ currentUser = noone;
 currentAction = -1;
 currentTargets = noone;
 battleText = "";
+oldStatsSaved = false;
 //targetting cursor
 cursor = 
 {

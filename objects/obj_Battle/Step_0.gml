@@ -114,19 +114,23 @@ function battleStateBattleWon()
 			}
 			if(global.party[i].name == _partyUnit.name)
 			{
+				if(oldStatsSaved == false)
+				{
+					//save old stats
+					oldLevel = global.party[i].Level;
+					oldHp = global.party[i].hpMax;
+					oldMp = global.party[i].mpMax;
+					oldVitality = global.party[i].Vitality;
+					oldStrength = global.party[i].Strength;
+					oldDexterity = global.party[i].Dexterity;
+					oldMagic = global.party[i].Magic;
+					oldSpirit = global.party[i].Spirit;
 				
-				//save old stats
-				var _oldLevel = global.party[i].Level;
-				var _oldHp = global.party[i].hpMax;
-				var _oldMp = global.party[i].mpMax;
-				var _oldVitality = global.party[i].Vitality;
-				var _oldStrength = global.party[i].Strength;
-				var _oldDexterity = global.party[i].Dexterity;
-				var _oldMagic = global.party[i].Magic;
-				var _oldSpirit = global.party[i].Spirit;
-				
-				global.party[i].hp = _partyUnit.hp;
-				global.party[i].mp = _partyUnit.mp;
+					global.party[i].hp = _partyUnit.hp;
+					global.party[i].mp = _partyUnit.mp;
+					
+					oldStatsSaved = true;
+				}
 					
 				while(global.party[i].currentXp >= global.party[i].xpRequired)
 				{
@@ -138,14 +142,14 @@ function battleStateBattleWon()
 				if(lvlup)
 				{
 					battleText = string(global.party[i].name) + " leveled up!\n";
-					battleText += "Level " + string(_oldLevel) + " -> " + string(global.party[i].Level) + "\n";
-					battleText += "HP " + string(_oldHp) + " -> " + string(global.party[i].hpMax) + "\n";
-					battleText += "MP " + string(_oldMp) + " -> " + string(global.party[i].mpMax) + "\n";				
-					battleText += "Vitality " + string(_oldVitality) + " -> " + string(global.party[i].Vitality) + "\n";
-					battleText += "Strength " + string(_oldStrength) + " -> " + string(global.party[i].Strength) + "\n";
-					battleText += "Dexterity " + string(_oldDexterity) + " -> " + string(global.party[i].Dexterity) + "\n";     
-					battleText += "Magic " + string(_oldMagic) + " -> " + string(global.party[i].Magic) + "\n";
-					battleText += "Spirit " + string(_oldSpirit) + " -> " + string(global.party[i].Spirit) + "\n";
+					battleText += "Level " + string(oldLevel) + " -> " + string(global.party[i].Level) + "\n";
+					battleText += "HP " + string(oldHp) + " -> " + string(global.party[i].hpMax) + "\n";
+					battleText += "MP " + string(oldMp) + " -> " + string(global.party[i].mpMax) + "\n";				
+					battleText += "Vitality " + string(oldVitality) + " -> " + string(global.party[i].Vitality) + "\n";
+					battleText += "Strength " + string(oldStrength) + " -> " + string(global.party[i].Strength) + "\n";
+					battleText += "Dexterity " + string(oldDexterity) + " -> " + string(global.party[i].Dexterity) + "\n";     
+					battleText += "Magic " + string(oldMagic) + " -> " + string(global.party[i].Magic) + "\n";
+					battleText += "Spirit " + string(oldSpirit) + " -> " + string(global.party[i].Spirit) + "\n";
 					show_debug_message("entered")
 				}
 				battleText +=  string(global.party[i].name) + " Experience: " + string(global.party[i].currentXp) + "/ " +  string(global.party[i].xpRequired)+ "\n";
