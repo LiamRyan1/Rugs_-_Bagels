@@ -102,7 +102,8 @@ if(cursor.active)
 if(battleText != "")
 {
 	var _w = string_width(battleText)+5;
-	draw_sprite_stretched(sScreen,0,x+160-round((_w*0.5)),y+15,_w,20);
+	var _h = string_height(battleText)+5
+ 	draw_sprite_stretched(sScreen,0,x+160-round((_w*0.5)),y+15,_w,_h);
 	draw_set_halign(fa_center);
 	draw_set_color(c_white);
 	draw_set_font(Fnt_Battle_Screen);

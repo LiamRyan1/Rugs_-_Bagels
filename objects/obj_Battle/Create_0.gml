@@ -13,7 +13,7 @@ currentUser = noone;
 currentAction = -1;
 currentTargets = noone;
 battleText = "";
-
+battleWon = false;
 //targetting cursor
 cursor = 
 {
@@ -26,7 +26,7 @@ cursor =
 	confirmDelay: 0,
 	active : false
 };
-
+setWaitTime = false;
 //ememies units
 for(var i = 0; i<array_length(enemies); i++)
 {
@@ -207,13 +207,12 @@ function BattleStatePerformAction()
 		}
 	}
 }
+
 function BattleStateVictoryCheck()
 {
-	
 	var _unit = unitTurnOrder[turn];
 	show_debug_message("Checking unit: " + string(_unit.name));
 	show_debug_message("Checking unit: " + string(_unit.hp));
-	
 	//check remaining enemies
 	aliveEnemies = 0;
 	for(var i = 0; i < array_length(enemyUnits); i++)
@@ -230,8 +229,6 @@ function BattleStateVictoryCheck()
 	//if player wins
 	if(aliveEnemies == 0)
 	{	
-		timerComplete = false;
-		battleText = "";
 		xpForBattle = 0;
 		for(var i = 0; i < array_length(enemyUnits); i++)
 		{
@@ -241,30 +238,9 @@ function BattleStateVictoryCheck()
 		battleText = "Total XP Gained : " + string(xpForBattle);
 		show_debug_message("Xp gained = " + string(xpForBattle));
 		xpGained = xpForBattle/array_length(partyUnits);
-		alarm[0] = 120; 
-		for(var i = 0; i < array_length(partyUnits); i++)
-		{
-			var _partyUnit = partyUnits[i];
-			global.party[i].currentXp += xpGained;
-			show_debug_message(string(global.party[i].name) + " CURRENT Xp = " + string(global.party[i].currentXp ));
-			if(global.party[i].name == _partyUnit.name)
-			{
-				global.party[i].hp = _partyUnit.hp;
-				global.party[i].mp = _partyUnit.mp;
-				while(global.party[i].currentXp >= global.party[i].xpRequired)
-				{
-					global.party[i].currentXp = global.party[i].currentXp - global.party[i].xpRequired;
-					global.party[i].Level++;
-					scalePartyStats();
-					show_debug_message(string(global.party[i].name) + "CURRENT Xp " + string(global.party[i].currentXp) + " RequiredXp " +  string(global.party[i].xpRequired) + " Current Level " + string(global.party[i].Level));		
-				}
-			}
-			instance_activate_all();
-			instance_destroy(creator);
-			instance_destroy();
-			return
-		}	
-		
+		battleWaitTimeRemaining = 60; 
+		battleState = battleStateBattleWon;	
+		return;
 	}
 	//check remaining party memebers
 	aliveParty = 0;
