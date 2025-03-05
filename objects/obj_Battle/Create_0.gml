@@ -13,7 +13,6 @@ currentUser = noone;
 currentAction = -1;
 currentTargets = noone;
 battleText = "";
-battleWon = false;
 //targetting cursor
 cursor = 
 {
@@ -26,7 +25,7 @@ cursor =
 	confirmDelay: 0,
 	active : false
 };
-setWaitTime = false;
+lvlup = false;
 //ememies units
 for(var i = 0; i<array_length(enemies); i++)
 {
@@ -235,10 +234,11 @@ function BattleStateVictoryCheck()
 			var _enemyUnit = enemyUnits[i];
 			xpForBattle += _enemyUnit.xpValue;
 		}
-		battleText = "Total XP Gained : " + string(xpForBattle);
+		battleText = "Total XP Gained : " + string(xpForBattle) + "\n";
 		show_debug_message("Xp gained = " + string(xpForBattle));
 		xpGained = xpForBattle/array_length(partyUnits);
-		battleWaitTimeRemaining = 60; 
+		battleText += "Xp per Party Member: " + string(xpGained) + " \n";
+		battleWaitTimeRemaining = 90; 
 		battleState = battleStateBattleWon;	
 		return;
 	}

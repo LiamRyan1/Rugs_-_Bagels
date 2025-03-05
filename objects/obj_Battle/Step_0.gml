@@ -80,8 +80,17 @@ if(cursor.active)
 		}
 	}
 }
+
 function battleStateBattleWon()
 {
+	if(!variable_global_exists("currentIndex"))
+	{
+		global.currentIndex = 0;
+	}
+	if(!variable_global_exists("xpReceived"))
+	{
+		global.xpReceived = false;
+	}
 	//show_debug_message("passed entered");
 	if(battleWaitTimeRemaining > 0)
 	{
@@ -90,18 +99,22 @@ function battleStateBattleWon()
 	}
 	else if(battleWaitTimeRemaining == 0 )
 	{
-		//show_debug_message("Now running");
-		if(battleWon != true)
-		{
+		//show_debug_message("Now running");		
 		battleText = "";
-		for(var i = 0; i < array_length(partyUnits); i++)
+		if(global.currentIndex < array_length(partyUnits))
 		{
+			var i = global.currentIndex;
 			var _partyUnit = partyUnits[i];
-			global.party[i].currentXp += xpGained;
-			show_debug_message(string(global.party[i].name) + " CURRENT Xp = " + string(global.party[i].currentXp ));
+			if(global.xpReceived == false)
+			{
+				show_debug_message("only running once");
+				global.party[i].currentXp += xpGained;
+				show_debug_message(string(global.party[i].name) + " CURRENT Xp = " + string(global.party[i].currentXp ));
+				global.xpReceived = true;
+			}
 			if(global.party[i].name == _partyUnit.name)
 			{
-				lvlup = false;
+				
 				//save old stats
 				var _oldLevel = global.party[i].Level;
 				var _oldHp = global.party[i].hpMax;
@@ -114,55 +127,46 @@ function battleStateBattleWon()
 				
 				global.party[i].hp = _partyUnit.hp;
 				global.party[i].mp = _partyUnit.mp;
+					
 				while(global.party[i].currentXp >= global.party[i].xpRequired)
 				{
-					battleText = ""
 					global.party[i].currentXp = global.party[i].currentXp - global.party[i].xpRequired;
 					global.party[i].Level++;
 					scalePartyStats();
-					lvlup = true;
-						
+					lvlup = true;	
 				}
 				if(lvlup)
 				{
-					battleText += string(global.party[i].name) + " leveled up!\n";
+					battleText = string(global.party[i].name) + " leveled up!\n";
 					battleText += "Level " + string(_oldLevel) + " -> " + string(global.party[i].Level) + "\n";
 					battleText += "HP " + string(_oldHp) + " -> " + string(global.party[i].hpMax) + "\n";
-					battleText += "MP " + string(_oldMp) + " -> " + string(global.party[i].mpMax) + "\n";
+					battleText += "MP " + string(_oldMp) + " -> " + string(global.party[i].mpMax) + "\n";				
 					battleText += "Vitality " + string(_oldVitality) + " -> " + string(global.party[i].Vitality) + "\n";
 					battleText += "Strength " + string(_oldStrength) + " -> " + string(global.party[i].Strength) + "\n";
 					battleText += "Dexterity " + string(_oldDexterity) + " -> " + string(global.party[i].Dexterity) + "\n";     
 					battleText += "Magic " + string(_oldMagic) + " -> " + string(global.party[i].Magic) + "\n";
 					battleText += "Spirit " + string(_oldSpirit) + " -> " + string(global.party[i].Spirit) + "\n";
+					show_debug_message("entered")
 				}
-				battleText += string(global.party[i].name) + " CURRENT Xp " + string(global.party[i].currentXp) + " RequiredXp " +  string(global.party[i].xpRequired) + " Current Level " + string(global.party[i].Level)  + "\n";
-				battleText += "\n";  
+				battleText +=  string(global.party[i].name) + " Experience: " + string(global.party[i].currentXp) + "/ " +  string(global.party[i].xpRequired)+ "\n";
+				if(keyboard_check_pressed(vk_enter))
+				{
+					global.xpReceived = false;
+					lvlup = false;
+					global.currentIndex++;
+					show_debug_message("Index :" + string(global.currentIndex) + "  XpStatus: " + string(global.xpReceived));
+					
+				}
 			}
-			}
 		}
-		if(lvlup && setWaitTime == false)
-		{
-			battleWaitTimeRemaining2 = 120;
-			setWaitTime = true;
-		}
-		else if (setWaitTime == false)
-		{
-			battleWaitTimeRemaining2 = 60;
-			setWaitTime = true;
-		}
-		if(battleWaitTimeRemaining2 > 0)
-		{	battleWon = true;
-			//show_debug_message("Entering battleWaitTimeRemaining == 0 block!");
-			battleWaitTimeRemaining2--;
-			//show_debug_message("Time Remaining 2: " + string(battleWaitTimeRemaining2));
-		}
-		else
+		
+		if(global.currentIndex >= array_length(partyUnits) )
 		{
 			//show_debug_message(string(global.party[0].name) + "CURRENT Xp " + string(global.party[0].currentXp) + " RequiredXp " +  string(global.party[0].xpRequired) + " Current Level " + string(global.party[0].Level));	
-			setWaitTime = false;
+			show_debug_message(string(array_length(partyUnits)));
 			xpGained = 0;
 			battleText = "";
-			battleWon = false;
+			global.currentIndex = 0;
 			instance_activate_all();
 			instance_destroy(creator);
 			instance_destroy();
@@ -171,14 +175,3 @@ function battleStateBattleWon()
 	}
 }
 
-//draw battle text
-/*
-if(battleText != "")
-{
-	var _w = string_width(battleText)+5;
-	draw_sprite_stretched(sScreen,0,x+160-round((_w*0.5)),y+15,_w,20);
-	draw_set_halign(fa_center);
-	draw_set_color(c_white);
-	draw_set_font(Fnt_Battle_Screen);
-	draw_text(x+160,y+20,battleText);
-}*/
