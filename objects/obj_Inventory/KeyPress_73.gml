@@ -3,7 +3,7 @@ if(!instance_exists(obj_InventoryGUI)){
 	with (inventoryDisplay) {
         // Set Position (Top-Left Corner)
 		x = sprite_get_xoffset(sprite_index);
-		y = room_height - sprite_get_yoffset(sprite_index);
+		y = 180 - sprite_get_yoffset(sprite_index);
     }
 } 
 
