@@ -128,6 +128,7 @@ function battleStateBattleWon()
 				
 					global.party[i].hp = _partyUnit.hp;
 					global.party[i].mp = _partyUnit.mp;
+					show_debug_message(string(global.party[i].name)  +  "New Hp " +  string(global.party[i].hp)  + "New Mp " + string(global.party[i].mp));
 					
 					oldStatsSaved = true;
 				}
@@ -157,6 +158,7 @@ function battleStateBattleWon()
 				{
 					global.xpReceived = false;
 					lvlup = false;
+					oldStatsSaved = false;
 					global.currentIndex++;
 					show_debug_message("Index :" + string(global.currentIndex) + "  XpStatus: " + string(global.xpReceived));
 					
