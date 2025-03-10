@@ -26,10 +26,19 @@ for(line = 0; line<(visibleOptionsMax + _desc); line++)
 		}
 		if(options[_optionToShow][3] == false) draw_set_color(c_gray);
 		draw_text(x + xMargin, y + yMargin + line * heightLine, _string);
+		// Check if the option is hovered and not grayed out
+        if (hover == _optionToShow - _desc && options[_optionToShow][3] != false) {
+            // If option is not grayed out, display the pointer sprite with index 1 (selected)
+            draw_sprite(sPointer, 1, x + xMargin + 8, y + yMargin + ((hover - _scrollPush) * heightLine) + 7);
+        } else {
+            // Otherwise, display the pointer sprite with index 0 (default)
+            draw_sprite(sPointer, 0, x + xMargin + 8, y + yMargin + ((hover - _scrollPush) * heightLine) + 7);
+        }
 	}
 }
-draw_sprite(sPointer, 0 , x + xMargin + 8, y + yMargin +((hover - _scrollPush) *heightLine)+7);
+
+
 if(visibleOptionsMax < array_length(options)) && (hover < array_length(options)- 1)
 {
-	draw_sprite(sDownArrow,0,x+widthFull*0.5, y + heightFull - 7);
+		draw_sprite(sDownArrow,0,x+widthFull*0.5, y + heightFull - 7);
 }

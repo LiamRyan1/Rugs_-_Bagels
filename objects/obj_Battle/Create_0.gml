@@ -90,7 +90,18 @@ function BattleStateSelectAction()
 				for(var i = 0; i < array_length(_actionList); i++)
 				{
 					var _action = _actionList[i];
-					var _available = true; //will need to check mp
+					//check mp cost
+					var _available = true;
+					
+					show_debug_message("entered");
+					if(_action.mpCost > _unit.mp)
+					{
+						_available = false;
+					}
+					else
+					{
+						 _available = true; 
+					}
 					var _nameAndCount = _action.name; //may need to modify to include item count if action action is a item
 					show_debug_message("Action: " + string(_action.name) + " | subMenu: " + string(_action.subMenu));
 					if(_action.subMenu == -1)

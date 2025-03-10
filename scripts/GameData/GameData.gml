@@ -11,6 +11,7 @@ global.actionLibrary =
 		userAnimation : "idle",
 		effectSprite : sAttackSlash,
 		effectOnTarget: MODE.ALWAYS,
+		mpCost: 0,
 		func: function(_user,_targets)
 		{
 			var _damage = ceil(_user.Strength + random_range(-_user.Dexterity * 0.25, _user.Dexterity  * 0.25));
@@ -37,6 +38,7 @@ global.actionLibrary =
 				var _damage = irandom_range(45,60);
 				BattleChangeHp(_targets[i],-_damage,0)
 			}
+			BattleChangeMp(-global.actionLibrary.lightning.mpCost,_user);
 		}
 	}
 }

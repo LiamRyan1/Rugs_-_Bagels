@@ -35,3 +35,7 @@ function BattleChangeHp(_target,_amount,_AliveDeadOrEither = 0)
 	//ensure healing is kept within range of 0-max health to prevent overheal
 	if(!_failed)_target.hp = clamp(_target.hp + _amount,0,_target.hpMax);
 }
+function BattleChangeMp(_amount,_user){
+	_user.mp = clamp(_user.mp + _amount,0,_user.mpMax);
+	show_debug_message("mana lost" + string(_user.mp));
+}
