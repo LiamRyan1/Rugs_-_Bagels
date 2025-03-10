@@ -28,8 +28,14 @@ for(line = 0; line<(visibleOptionsMax + _desc); line++)
 		draw_text(x + xMargin, y + yMargin + line * heightLine, _string);
 	}
 }
+if(options[hover][3] == false)
+{
+	draw_sprite(sPointer, 1 , x + xMargin + 8, y + yMargin +((hover - _scrollPush) *heightLine)+7);
+}
+else{
+	draw_sprite(sPointer, 0 , x + xMargin + 8, y + yMargin +((hover - _scrollPush) *heightLine)+7);
+}
 
-draw_sprite(sPointer, 0 , x + xMargin + 8, y + yMargin +((hover - _scrollPush) *heightLine)+7);
 
 if(visibleOptionsMax < array_length(options)) && (hover < array_length(options)- 1)
 {
