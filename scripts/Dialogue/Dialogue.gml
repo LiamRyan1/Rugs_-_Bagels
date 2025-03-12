@@ -7,23 +7,23 @@ function create_dialogue(_messages){
 }
 
 char_colors = {
-	"Merchant": c_green,
-	"Hero": c_blue
+	"Merchant:": c_white,
+	"Hero:": c_lime
 }
 
 welcome_dialogue = [
 {
-	name: "Merchant",
+	name: "Merchant:",
 	msg: "Hail traveller! Welcome to my shop!"
 },
 
 {
-	name: "Hero",
+	name: "Hero:",
 	msg: "What have you got for sale ?"
 },
 {
-	name: "Merchant",
-	msg: "Please take a look"
+	name: "Merchant:",
+	msg: "Please take a look ..."
 },
 
 
