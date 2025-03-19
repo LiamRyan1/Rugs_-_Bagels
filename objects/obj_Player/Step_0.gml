@@ -4,9 +4,22 @@ var _key_right = keyboard_check(vk_right) || keyboard_check(ord("D"));
 var _key_up =   keyboard_check(vk_up)  ||keyboard_check(ord("W")) ;
 var _key_down = keyboard_check(vk_down) || keyboard_check(ord("S"));
 
+//gamecontroller input
+xAxis = 0;
+yAxis = 0;
+if(controllerID >= 0 )
+{
+	xAxis = gamepad_axis_value(controllerID,gp_axislh);
+	yAxis = gamepad_axis_value(controllerID,gp_axislv);
+	show_debug_message("controller movement");
+}
+
+
+xMove = xAxis + (_key_right-_key_left);
+yMove = yAxis + (_key_down-_key_up);
 //player angle and magnitude
-var pDirection = point_direction(0,0,_key_right-_key_left,_key_down-_key_up);
-var pMagnitude = (_key_right-_key_left !=0) || (_key_down-_key_up != 0);
+var pDirection = point_direction(0,0,xMove,yMove);
+var pMagnitude = (xMove !=0) || (yMove != 0);
 
 hSpeed = lengthdir_x(pMagnitude * walksp,pDirection);
 vSpeed = lengthdir_y(pMagnitude * walksp,pDirection);

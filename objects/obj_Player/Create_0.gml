@@ -13,7 +13,27 @@ hSpeed = 0;
 vSpeed = 0;
 walksp = 2;//4px
 
-spriteRun = sPlayerRunning;
-spriteIdle = sPlayer;
+controllerID = undefined;
+
+//idle sprites for 4 player
+mySprites[0] = sPlayer;
+mySprites[1] = sPlayer;
+mySprites[2] = sPlayer;
+mySprites[3] = sPlayer;
+
+//running spites
+mySpriteRun[0] = sPlayerRunning; 
+mySpriteRun[1] = sPlayerRunning; 
+mySpriteRun[2] = sPlayerRunning; 
+mySpriteRun[3] = sPlayerRunning; 
+
+mySprite = irandom_range(0,3);
+
+spriteRun = mySpriteRun[mySprite];
+spriteIdle = mySprites[mySprite];
 localFrame = 0;
+
+
+
+
 
