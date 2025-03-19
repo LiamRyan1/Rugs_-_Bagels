@@ -11,7 +11,6 @@ if(controllerID >= 0 )
 {
 	xAxis = gamepad_axis_value(controllerID,gp_axislh);
 	yAxis = gamepad_axis_value(controllerID,gp_axislv);
-	show_debug_message("controller movement");
 }
 
 
