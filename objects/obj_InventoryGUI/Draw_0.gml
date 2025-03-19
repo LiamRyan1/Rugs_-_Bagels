@@ -36,4 +36,27 @@ draw_text((textX - 60), (textY - 50), "Image");
 draw_text((textX - 60) + max_text_width * 0.4, (textY - 50), "Name");      // Shift to the right for "Name"
 draw_text((textX - 60) + max_text_width * 0.75, (textY - 50), "Amount");   // Shift further for "Amount"
 
+// Calculate starting positions for item names
+var itemLeftStart = inventoryX -10;  // X position for items
+var itemTopStart = inventoryY - 30;   // Y position for items
 
+// Loop through items in the inventory and draw them
+// Loop through items in the inventory and draw
+// Loop through items in the inventory and draw
+// Loop through items in the inventory and draw
+for (i = 0; i < inventoryEndAt; i++) {
+    // Correctly fetch item name (column 0), amount (column 1), and sprite (column 3)
+    var itemName = ds_grid_get(myItems, 0, i);  // Item name (column 0)
+    var itemAmount = ds_grid_get(myItems, 1, i);  // Item amount (column 1)
+    var itemSprite = ds_grid_get(myItems, 3, i);  // Item sprite (column 3)
+
+    // Draw the item sprite (scaled or not)
+    if (sprite_exists(itemSprite)) {
+        var spriteSize = 32; // Adjust sprite size if needed
+        draw_sprite(itemSprite, 0, itemLeftStart - 40, itemTopStart + (i * 32));  // Draw sprite to the left of the text
+    }
+
+    // Draw the item name and amount (properly aligned)
+    draw_text(itemLeftStart, itemTopStart + (i * 32), itemName);  // Draw item name
+    draw_text(itemLeftStart + max_text_width * 0.55, itemTopStart + (i * 32), string(itemAmount));  // Draw item amount
+}
