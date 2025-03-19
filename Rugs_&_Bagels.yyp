@@ -66,6 +66,8 @@
     {"id":{"name":"obj_Quit_Button","path":"objects/obj_Quit_Button/obj_Quit_Button.yy",},},
     {"id":{"name":"obj_Skeleton","path":"objects/obj_Skeleton/obj_Skeleton.yy",},},
     {"id":{"name":"obj_Start_Button","path":"objects/obj_Start_Button/obj_Start_Button.yy",},},
+    {"id":{"name":"obj_test_collision","path":"objects/obj_test_collision/obj_test_collision.yy",},},
+    {"id":{"name":"obj_test_dialogue","path":"objects/obj_test_dialogue/obj_test_dialogue.yy",},},
     {"id":{"name":"obj_Text","path":"objects/obj_Text/obj_Text.yy",},},
     {"id":{"name":"obj_TextQueued","path":"objects/obj_TextQueued/obj_TextQueued.yy",},},
     {"id":{"name":"obj_VIllager1","path":"objects/obj_VIllager1/obj_VIllager1.yy",},},
@@ -112,9 +114,9 @@
   "resourceType":"GMProject",
   "resourceVersion":"2.0",
   "RoomOrderNodes":[
+    {"roomId":{"name":"rm_Forest","path":"rooms/rm_Forest/rm_Forest.yy",},},
     {"roomId":{"name":"rm_Menu","path":"rooms/rm_Menu/rm_Menu.yy",},},
     {"roomId":{"name":"rm_Village","path":"rooms/rm_Village/rm_Village.yy",},},
-    {"roomId":{"name":"rm_Forest","path":"rooms/rm_Forest/rm_Forest.yy",},},
   ],
   "templateType":"game",
   "TextureGroups":[
