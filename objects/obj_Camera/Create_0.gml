@@ -2,3 +2,4 @@
 
 view_visible = true;
 global.Cameras = undefined;
+persistent = true;
