@@ -1,14 +1,39 @@
-// Draw the sprite first (if needed)
-draw_self();
+// Get camera position
+var camX = camera_get_view_x(view_camera[0]);
+var camY = camera_get_view_y(view_camera[0]);
 
-// Set text color
-draw_set_color(myColour);
+// Set inventory UI position relative to the camera
+var inventoryX = camX + 50; 
+var inventoryY = camY + 50;
 
-// Adjust the text positions relative to the sprite's bounding box
-var textX = bbox_left + textBorder;   // Position relative to sprite's left edge
-var textY = bbox_top + textBorder;    // Position relative to sprite's top edge
+// Get sprite width & height for proper text alignment
+var inv_width = sprite_get_width(sInventory);
+var inv_height = sprite_get_height(sInventory);
 
-// Draw the text
-draw_text(textX, textY, "Image");
-draw_text(textX + 125, textY, "Name");      // Shift to the right for "Name"
-draw_text(textX + 225, textY, "Amount");   // Shift further for "Amount"
+// Draw the inventory sprite
+if (sprite_exists(sInventory)) {
+    draw_sprite(sInventory, 0, inventoryX, inventoryY);
+}
+
+// Set the custom font for text (use the fnt_inventory font here)
+draw_set_font(fnt_inventory);  // Use your custom font (fnt_inventory)
+
+// Set text properties
+draw_set_halign(fa_left);   // Align text to the left
+draw_set_valign(fa_top);    // Align text to the top
+draw_set_color(myColour);   // Set the text color (myColour can be any color like c_black, etc.)
+
+// Define text padding inside the inventory box
+var padding = 10;  // Padding for spacing inside the inventory box
+var textX = inventoryX + padding;
+var textY = inventoryY + padding;
+
+// Define max text width to prevent overflow
+var max_text_width = inv_width - (2 * padding);  // Adjusted for padding
+
+// Draw the text for inventory headers
+draw_text((textX - 60), (textY - 50), "Image");
+draw_text((textX - 60) + max_text_width * 0.4, (textY - 50), "Name");      // Shift to the right for "Name"
+draw_text((textX - 60) + max_text_width * 0.75, (textY - 50), "Amount");   // Shift further for "Amount"
+
+

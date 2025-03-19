@@ -45,6 +45,7 @@
   "name":"Rugs_&_Bagels",
   "resources":[
     {"id":{"name":"Fnt_Battle_Screen","path":"fonts/Fnt_Battle_Screen/Fnt_Battle_Screen.yy",},},
+    {"id":{"name":"fnt_inventory","path":"fonts/fnt_inventory/fnt_inventory.yy",},},
     {"id":{"name":"Fnt_Menu","path":"fonts/Fnt_Menu/Fnt_Menu.yy",},},
     {"id":{"name":"Fnt_Textboxes","path":"fonts/Fnt_Textboxes/Fnt_Textboxes.yy",},},
     {"id":{"name":"obj_Battle","path":"objects/obj_Battle/obj_Battle.yy",},},
