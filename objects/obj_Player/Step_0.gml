@@ -1,8 +1,15 @@
 //store boolean checks for keyboard input
-var _key_left = keyboard_check(vk_left) || keyboard_check(ord("A"));
-var _key_right = keyboard_check(vk_right) || keyboard_check(ord("D"));
-var _key_up =   keyboard_check(vk_up)  ||keyboard_check(ord("W")) ;
-var _key_down = keyboard_check(vk_down) || keyboard_check(ord("S"));
+var _key_left = 0;
+var _key_right = 0;
+var _key_up = 0;
+var _key_down = 0;
+if(controllerID == undefined)
+{
+	_key_left = keyboard_check(vk_left) || keyboard_check(ord("A"));
+	_key_right = keyboard_check(vk_right) || keyboard_check(ord("D"));
+	_key_up =   keyboard_check(vk_up)  ||keyboard_check(ord("W")) ;
+	_key_down = keyboard_check(vk_down) || keyboard_check(ord("S"));
+}
 
 //gamecontroller input
 xAxis = 0;
