@@ -25,7 +25,7 @@ if(controllerID >= 0 )
 xMove = round(xAxis + (_key_right-_key_left));
 yMove = round(yAxis + (_key_down-_key_up));
 //player angle and magnitude
-var pDirection =point_direction(0,0,xMove,yMove);
+var pDirection = point_direction(0,0,xMove,yMove);
 var pMagnitude = (xMove != 0) || (yMove != 0);
 
 hSpeed =  round(lengthdir_x(pMagnitude * walksp,pDirection));

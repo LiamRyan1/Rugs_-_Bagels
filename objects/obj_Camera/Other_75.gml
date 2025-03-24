@@ -3,13 +3,16 @@
 show_debug_message("bonjour");
 if(async_load[? "event_type"] == "gamepad discovered")
 {
-show_debug_message("Entered add new platwe");
-	with(instance_create_layer(room_width/2, room_height/2,"Instances",obj_Player))
+	if(instance_number(obj_Player) < 3)
 	{
-		controllerID = async_load[? "pad_index"];
-		gamepad_set_axis_deadzone(controllerID,0.2);
+		show_debug_message("Entered add new platwe");
+		with(instance_create_layer(room_width/2, room_height/2,"Instances",obj_Player))
+		{
+			controllerID = async_load[? "pad_index"];
+			gamepad_set_axis_deadzone(controllerID,0.2);
+		}
+		CreateCameras();
 	}
-	CreateCameras();
 }
 
 //controller removed
