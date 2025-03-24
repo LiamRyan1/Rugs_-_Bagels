@@ -175,6 +175,7 @@ function battleStateBattleWon()
 			global.currentIndex = 0;
 			instance_activate_all();
 			instance_destroy(creator);
+			CreateCameras();
 			instance_destroy();
 			return
 		}

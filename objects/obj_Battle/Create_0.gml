@@ -1,4 +1,12 @@
 instance_deactivate_all(true);
+view_visible[1] = false;
+view_visible[2] = false;
+view_set_xport(0,0);
+view_set_yport(0,0);
+//width and height of whats shown
+view_set_wport(0,320);
+view_set_hport(0,180);
+camera_set_view_size(global.Cameras[0],320,180);
 //contains all units
 units = [];
 turn = 0;
