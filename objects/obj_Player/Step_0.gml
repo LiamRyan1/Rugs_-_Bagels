@@ -14,6 +14,7 @@ if(controllerID == undefined)
 //gamecontroller input
 xAxis = 0;
 yAxis = 0;
+
 if(controllerID >= 0 )
 {
 	xAxis = gamepad_axis_value(controllerID,gp_axislh);
@@ -21,14 +22,15 @@ if(controllerID >= 0 )
 }
 
 
-xMove = xAxis + (_key_right-_key_left);
-yMove = yAxis + (_key_down-_key_up);
+xMove = round(xAxis + (_key_right-_key_left));
+yMove = round(yAxis + (_key_down-_key_up));
 //player angle and magnitude
-var pDirection = point_direction(0,0,xMove,yMove);
-var pMagnitude = (xMove !=0) || (yMove != 0);
+var pDirection =point_direction(0,0,xMove,yMove);
+var pMagnitude = (xMove != 0) || (yMove != 0);
 
-hSpeed = lengthdir_x(pMagnitude * walksp,pDirection);
-vSpeed = lengthdir_y(pMagnitude * walksp,pDirection);
+hSpeed =  round(lengthdir_x(pMagnitude * walksp,pDirection));
+vSpeed =  round(lengthdir_y(pMagnitude * walksp,pDirection));
+
 
 // This will handle collision and movement - Check scripts
 var collisionHappened = PlayerCollision();

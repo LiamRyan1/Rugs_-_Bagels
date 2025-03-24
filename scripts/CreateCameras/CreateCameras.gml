@@ -30,10 +30,12 @@ function CreateCameras(){
 		//4 player
 		if(i == 0)
 		{
-			view_xport[i] = 0;
-			view_yport[i] = 0;
-			view_wport[i] = _width;
-			view_hport[i] = _height;
+			view_set_xport(0,0);
+			view_set_yport(0,0);
+			//width and height of whats shown
+			view_set_wport(0,_width);
+			view_set_hport(0,_height);
+			camera_set_view_size(global.Cameras[0],_width,_height);
 		}
 		if(i == 1)
 		{
