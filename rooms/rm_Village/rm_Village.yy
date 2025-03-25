@@ -12,7 +12,6 @@
     {"name":"inst_16BFA1D","path":"rooms/rm_Village/rm_Village.yy",},
     {"name":"inst_773AF460","path":"rooms/rm_Village/rm_Village.yy",},
     {"name":"inst_A19FBBC","path":"rooms/rm_Village/rm_Village.yy",},
-    {"name":"inst_647E0419","path":"rooms/rm_Village/rm_Village.yy",},
   ],
   "isDnd":false,
   "layers":[
@@ -25,7 +24,6 @@
         {"$GMRInstance":"v1","%Name":"inst_A19FBBC","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_A19FBBC","objectId":{"name":"obj_VIllager1","path":"objects/obj_VIllager1/obj_VIllager1.yy",},"properties":[
             {"$GMOverriddenProperty":"v1","%Name":"","name":"","objectId":{"name":"obj_Npc_Parent","path":"objects/obj_Npc_Parent/obj_Npc_Parent.yy",},"propertyId":{"name":"dialog","path":"objects/obj_Npc_Parent/obj_Npc_Parent.yy",},"resourceType":"GMOverriddenProperty","resourceVersion":"2.0","value":"global.welcome_dialogue",},
           ],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":160.0,"y":64.0,},
-        {"$GMRInstance":"v1","%Name":"inst_647E0419","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_647E0419","objectId":{"name":"obj_test_collision","path":"objects/obj_test_collision/obj_test_collision.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":160.0,"y":128.0,},
       ],"layers":[],"name":"Instances","properties":[],"resourceType":"GMRInstanceLayer","resourceVersion":"2.0","userdefinedDepth":false,"visible":true,},
     {"$GMRTileLayer":"","%Name":"Col","depth":100,"effectEnabled":true,"effectType":null,"gridX":32,"gridY":32,"hierarchyFrozen":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"layers":[],"name":"Col","properties":[],"resourceType":"GMRTileLayer","resourceVersion":"2.0","tiles":{"SerialiseHeight":20,"SerialiseWidth":40,"TileCompressedData":[
           -38,1,-2,-2147483648,1,1,-4,-2147483648,-7,0,-6,1,2,-2147483648,0,-18,-2147483648,-3,1,1,0,-5,1,-2,-2147483648,
