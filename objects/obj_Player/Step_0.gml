@@ -1,17 +1,38 @@
 if(instance_exists(obj_Dialogue)) exit;
 
 //store boolean checks for keyboard input
-var _key_left = keyboard_check(vk_left) || keyboard_check(ord("A"));
-var _key_right = keyboard_check(vk_right) || keyboard_check(ord("D"));
-var _key_up =   keyboard_check(vk_up)  ||keyboard_check(ord("W")) ;
-var _key_down = keyboard_check(vk_down) || keyboard_check(ord("S"));
+var _key_left = 0;
+var _key_right = 0;
+var _key_up = 0;
+var _key_down = 0;
+if(controllerID == undefined)
+{
+	_key_left = keyboard_check(vk_left) || keyboard_check(ord("A"));
+	_key_right = keyboard_check(vk_right) || keyboard_check(ord("D"));
+	_key_up =   keyboard_check(vk_up)  ||keyboard_check(ord("W")) ;
+	_key_down = keyboard_check(vk_down) || keyboard_check(ord("S"));
+}
 
+//gamecontroller input
+xAxis = 0;
+yAxis = 0;
+
+if(controllerID >= 0 )
+{
+	xAxis = gamepad_axis_value(controllerID,gp_axislh);
+	yAxis = gamepad_axis_value(controllerID,gp_axislv);
+}
+
+
+xMove = round(xAxis + (_key_right-_key_left));
+yMove = round(yAxis + (_key_down-_key_up));
 //player angle and magnitude
-var pDirection = point_direction(0,0,_key_right-_key_left,_key_down-_key_up);
-var pMagnitude = (_key_right-_key_left !=0) || (_key_down-_key_up != 0);
+var pDirection = point_direction(0,0,xMove,yMove);
+var pMagnitude = (xMove != 0) || (yMove != 0);
 
-hSpeed = lengthdir_x(pMagnitude * walksp,pDirection);
-vSpeed = lengthdir_y(pMagnitude * walksp,pDirection);
+hSpeed =  round(lengthdir_x(pMagnitude * walksp,pDirection));
+vSpeed =  round(lengthdir_y(pMagnitude * walksp,pDirection));
+
 
 // This will handle collision and movement - Check scripts
 var collisionHappened = PlayerCollision();
