@@ -1,3 +1,5 @@
+if(instance_exists(obj_Dialogue)) exit;
+
 //store boolean checks for keyboard input
 var _key_left = keyboard_check(vk_left) || keyboard_check(ord("A"));
 var _key_right = keyboard_check(vk_right) || keyboard_check(ord("D"));
