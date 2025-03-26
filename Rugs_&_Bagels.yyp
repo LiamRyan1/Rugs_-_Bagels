@@ -87,6 +87,7 @@
     {"id":{"name":"Dialogue","path":"scripts/Dialogue/Dialogue.yy",},},
     {"id":{"name":"GameData","path":"scripts/GameData/GameData.yy",},},
     {"id":{"name":"Initialize","path":"scripts/Initialize/Initialize.yy",},},
+    {"id":{"name":"inventoryToJSON","path":"scripts/inventoryToJSON/inventoryToJSON.yy",},},
     {"id":{"name":"MACROS","path":"scripts/MACROS/MACROS.yy",},},
     {"id":{"name":"MenuFunctions","path":"scripts/MenuFunctions/MenuFunctions.yy",},},
     {"id":{"name":"NewTextBox","path":"scripts/NewTextBox/NewTextBox.yy",},},
