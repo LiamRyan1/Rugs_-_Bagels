@@ -82,7 +82,7 @@ function CreateCameras(){
 		}
 	}
 	
-	window_set_size(_width *_scale,_height * _scale);
+	window_set_size(640*_scale,360 * _scale);
 	surface_resize(application_surface,_width*_scale,_height*_scale);
 	
 	

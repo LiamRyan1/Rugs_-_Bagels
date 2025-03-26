@@ -1,3 +1,15 @@
+if instance_number(obj_Player) == 1
+{
+	gpu_set_scissor(0,0,320, 180);
+}
+else if instance_number(obj_Player) == 2
+{
+	gpu_set_scissor(0,0,320/2, 180/2);
+}
+else if instance_number(obj_Player) == 3
+{
+	gpu_set_scissor(0,0,320, 180/2);
+}
 // Get camera position
 var camX = camera_get_view_x(view_camera[0]);
 var camY = camera_get_view_y(view_camera[0]);
@@ -60,3 +72,4 @@ for (i = 0; i < inventoryEndAt; i++) {
     draw_text(itemLeftStart, itemTopStart + (i * 32), itemName);  // Draw item name
     draw_text(itemLeftStart + max_text_width * 0.55, itemTopStart + (i * 32), string(itemAmount));  // Draw item amount
 }
+gpu_set_scissor(0, 0, display_get_width(), display_get_height());
