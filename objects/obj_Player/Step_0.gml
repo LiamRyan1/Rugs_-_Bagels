@@ -1,58 +1,60 @@
-if(instance_exists(obj_Dialogue)) exit;
+// Ensure the player moves automatically
 
-//store boolean checks for keyboard input
-var _key_left = 0;
-var _key_right = 0;
-var _key_up = 0;
-var _key_down = 0;
-if(controllerID == undefined)
-{
-	_key_left = keyboard_check(vk_left) || keyboard_check(ord("A"));
-	_key_right = keyboard_check(vk_right) || keyboard_check(ord("D"));
-	_key_up =   keyboard_check(vk_up)  ||keyboard_check(ord("W")) ;
-	_key_down = keyboard_check(vk_down) || keyboard_check(ord("S"));
+// Store time to change direction
+if (!variable_global_exists("changeTime")) {
+    global.changeTime = current_time + irandom_range(1000, 3000); // Random time between 1-3 sec
 }
 
-//gamecontroller input
-xAxis = 0;
-yAxis = 0;
-
-if(controllerID >= 0 )
-{
-	xAxis = gamepad_axis_value(controllerID,gp_axislh);
-	yAxis = gamepad_axis_value(controllerID,gp_axislv);
+// If it's time to change direction, pick a new one
+if (current_time >= global.changeTime) {
+    global.changeTime = current_time + irandom_range(1000, 3000);
+    direction = irandom(359); // Picks a random direction
 }
 
+// Move the player automatically
+hSpeed = lengthdir_x(walksp, direction);
+vSpeed = lengthdir_y(walksp, direction);
 
-xMove = round(xAxis + (_key_right-_key_left));
-yMove = round(yAxis + (_key_down-_key_up));
-//player angle and magnitude
-var pDirection = point_direction(0,0,xMove,yMove);
-var pMagnitude = (xMove != 0) || (yMove != 0);
-
-hSpeed =  round(lengthdir_x(pMagnitude * walksp,pDirection));
-vSpeed =  round(lengthdir_y(pMagnitude * walksp,pDirection));
-
-
-// This will handle collision and movement - Check scripts
+// Handle collision
 var collisionHappened = PlayerCollision();
 
-//Animating Playersprite
-
-//Update sprite index
-var _oldSprite = sprite_index;
-//when moving
-if(pMagnitude != 0)
-{
-	//holds angle player is moving in
-	direction = pDirection;
-	sprite_index = spriteRun;
+// If collision happens, change direction
+if (collisionHappened) {
+    direction += 180; // Turn around
 }
-else sprite_index = spriteIdle;
-//reset local frame on sprite switch to start on first frame
-if(_oldSprite != sprite_index) localFrame = 0;
 
-//update image index
+// Check if player is outside room bounds
+if (x < 0 || x > 640 || y < 0 || y > 320) {
+    // This will crash the game
+    show_error("Player has left the room bounds! Crashing the game...", true); 
+}
+
+// Animate player
+var _oldSprite = sprite_index;
+sprite_index = spriteRun;
+if (_oldSprite != sprite_index) localFrame = 0;
 PlayerAnimation();
 
+// Have player alternate between Spacebar, Enter, and I key
 
+// Initialize key toggle
+if (!variable_global_exists("keyToggle")) {
+    global.keyToggle = 0; // 0 = Space, 1 = Enter, 2 = I
+    global.keyTimer = current_time + 1000; // Switch every second (adjust as needed)
+}
+
+// Check if it's time to switch keys
+if (current_time >= global.keyTimer) {
+    global.keyToggle = (global.keyToggle + 1) mod 3; 
+	// Reset timer
+    global.keyTimer = current_time + 1000; 
+}
+
+// Simulate key press
+if (global.keyToggle == 0) {
+   //keyboard_key_press(vk_space); // Simulate Spacebar
+} else if (global.keyToggle == 1) {
+    //keyboard_key_press(vk_enter); // Simulate Enter
+} else {
+    keyboard_key_press(ord("I")); // Simulate I key
+}

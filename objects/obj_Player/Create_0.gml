@@ -11,7 +11,7 @@ image_speed = 0;
 //h = horizontal  v = vertical  grv = gravity  sp = speed
 hSpeed = 0;
 vSpeed = 0;
-walksp = 2;//4px
+walksp = 1;//4px
 
 controllerID = undefined;
 
