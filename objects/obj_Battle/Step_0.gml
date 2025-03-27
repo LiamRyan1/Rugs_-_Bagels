@@ -6,11 +6,11 @@ if(cursor.active)
 {
 	with(cursor)
 	{
-		
 		var _keyLeft = keyboard_check_pressed(vk_left) || keyboard_check_pressed(ord("A"));
 		var _keyRight = keyboard_check_pressed(vk_right) || keyboard_check_pressed(ord("D"));
 		var _keyUp =   keyboard_check_pressed(vk_up)  ||keyboard_check_pressed(ord("W")) ;
 		var _keyDown = keyboard_check_pressed(vk_down) || keyboard_check_pressed(ord("S"));
+		
 		var _keyToggle = false;
 		var _keyConfirm = false;
 		var _keyCancel = false;

@@ -55,4 +55,16 @@ if(_oldSprite != sprite_index) localFrame = 0;
 //update image index
 PlayerAnimation();
 
-
+if (place_meeting(x + hSpeed, y + vSpeed, obj_Player)) 
+{
+    // Resolve collision by pushing the player away in the opposite direction
+    while (place_meeting(x + sign(hSpeed), y + sign(vSpeed), obj_Player))
+    {
+        x -= sign(hSpeed);
+        y -= sign(vSpeed);
+    }
+    
+    // Optionally, stop movement entirely if collision occurs
+    hSpeed = 0;
+    vSpeed = 0;
+}
