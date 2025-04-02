@@ -55,26 +55,7 @@ enum MODE
 //struct party data
 global.party =
 [
-	{
-	name: "Player1",
-	Level: 1,
-	baseStats: { Vitality: 10, Strength: 10, Dexterity: 20, Magic: 10,Spirit: 10},
-	scaling: { Vitality: 2, Strength: 2, Dexterity: 2, Magic: 1,Spirit: 1},
-	xpRequiredMultiplier:4,
-	currentXp:0,
-	Sprites : {idle: sPlayerIdle,down: sPlayerDead},
-	actions: [global.actionLibrary.lightning,global.actionLibrary.attack]
-	},
-	{
-	name: "Player2",
-	Level: 1,
-	baseStats: { Vitality: 10, Strength: 10, Dexterity: 20, Magic: 10,Spirit: 10},
-	scaling: { Vitality: 2, Strength: 2, Dexterity: 2, Magic: 1,Spirit: 1},
-	xpRequiredMultiplier:4,
-	currentXp:0,
-	Sprites : {idle: sPlayerIdle,down: sPlayerDead},
-	actions: [global.actionLibrary.lightning,global.actionLibrary.attack]
-	},
+
 ];
 function scalePartyStats()
 {
