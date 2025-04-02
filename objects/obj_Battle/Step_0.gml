@@ -6,10 +6,10 @@ if(cursor.active)
 {
 	with(cursor)
 	{
-		var _keyLeft = keyboard_check_pressed(vk_left) || keyboard_check_pressed(ord("A"));
-		var _keyRight = keyboard_check_pressed(vk_right) || keyboard_check_pressed(ord("D"));
-		var _keyUp =   keyboard_check_pressed(vk_up)  ||keyboard_check_pressed(ord("W")) ;
-		var _keyDown = keyboard_check_pressed(vk_down) || keyboard_check_pressed(ord("S"));
+		var _keyLeft = keyboard_check_pressed(vk_left) || keyboard_check_pressed(ord("A"))   || gamepad_button_check_pressed(4,gp_padl);
+		var _keyRight = keyboard_check_pressed(vk_right) || keyboard_check_pressed(ord("D"))  || gamepad_button_check_pressed(4,gp_padr);
+		var _keyUp =   keyboard_check_pressed(vk_up)  ||keyboard_check_pressed(ord("W"))  || gamepad_button_check_pressed(4,gp_padd) ;
+		var _keyDown = keyboard_check_pressed(vk_down) || keyboard_check_pressed(ord("S"))  || gamepad_button_check_pressed(4,gp_padu);
 		
 		var _keyToggle = false;
 		var _keyConfirm = false;
@@ -17,9 +17,9 @@ if(cursor.active)
 		confirmDelay++;
 		if(confirmDelay > 1)
 		{
-			_keyToggle = keyboard_check_pressed(vk_shift);
-			_keyConfirm = keyboard_check_pressed(vk_enter);
-			_keyCancel =  keyboard_check_pressed(vk_escape);
+			_keyToggle = keyboard_check_pressed(vk_shift) || gamepad_button_check_pressed(4,gp_face4);
+			_keyConfirm = keyboard_check_pressed(vk_enter) || gamepad_button_check_pressed(4,gp_face3);
+			_keyCancel =  keyboard_check_pressed(vk_escape) ||  gamepad_button_check_pressed(4,gp_face2);
 		}
 		var _moveH = _keyRight - _keyLeft;
 		var _moveV = _keyDown - _keyUp;
