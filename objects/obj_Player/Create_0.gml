@@ -14,20 +14,7 @@ vSpeed = 0;
 walksp = 2;//4px
 
 controllerID = undefined;
-Name = "Player"+string(instance_number(obj_Player));
-array_push(global.party,
-{
-	name: Name,
-	Level: 1,
-	playerId: controllerID,
-	baseStats: { Vitality: 10, Strength: 10, Dexterity: 20, Magic: 10,Spirit: 10},
-	scaling: { Vitality: 2, Strength: 2, Dexterity: 2, Magic: 1,Spirit: 1},
-	xpRequiredMultiplier:4,
-	currentXp:0,
-	Sprites : {idle: sPlayerIdle,down: sPlayerDead},
-	actions: [global.actionLibrary.lightning,global.actionLibrary.attack]
-},);
-scalePartyStats();
+
 //idle sprites for 3 player
 mySprites[0] = sPlayer;
 mySprites[1] = sPlayer;

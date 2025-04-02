@@ -9,6 +9,19 @@ if(async_load[? "event_type"] == "gamepad discovered")
 		with(instance_create_layer(room_width/2, room_height/2,"Instances",obj_Player))
 		{
 			controllerID = async_load[? "pad_index"];
+			
+			array_push(global.party,{
+				name:"Player"+string(instance_number(obj_Player)),
+				Level: 1,
+				playerId: controllerID,
+				baseStats: { Vitality: 10, Strength: 10, Dexterity: 20, Magic: 10,Spirit: 10},
+				scaling: { Vitality: 2, Strength: 2, Dexterity: 2, Magic: 1,Spirit: 1},
+				xpRequiredMultiplier:4,
+				currentXp:0,
+				Sprites : {idle: sPlayerIdle,down: sPlayerDead},
+				actions: [global.actionLibrary.lightning,global.actionLibrary.attack]
+			},);
+			scalePartyStats();
 			gamepad_set_axis_deadzone(controllerID,0.2);
 		}
 		CreateCameras();
@@ -18,8 +31,22 @@ if(async_load[? "event_type"] == "gamepad discovered")
 //controller removed
 if(async_load[? "event_type"] == "gamepad lost")
 {
-	show_debug_message("Deleting playwe?");
+	show_debug_message("Deleting player?");
 	var _controller = async_load[? "pad_index"];
+	for(var i = 0; i < array_length(global.party); i++)
+	{
+		
+		show_debug_message("looping");
+		show_debug_message(string(global.party[i].playerId));
+		show_debug_message(string(_controller))
+		if(global.party[i].playerId == _controller)
+		{
+			
+			show_debug_message("Entered the deletion of " + string(global.party[i].name));
+			array_delete(global.party,i,1);
+			break
+		}
+	}
 	for(var i = 0; i<instance_number(obj_Player); i++)
 	{
 		if(instance_find(obj_Player,i).controllerID == _controller)
@@ -28,5 +55,9 @@ if(async_load[? "event_type"] == "gamepad lost")
 			break;
 		}
 	}
+for (var j = 0; j < array_length(global.party); j++)
+{
+    show_debug_message(string(global.party[j]));
+}
 	CreateCameras();
 }

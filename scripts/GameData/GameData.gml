@@ -55,7 +55,17 @@ enum MODE
 //struct party data
 global.party =
 [
-
+{
+	name:"Player1",
+	Level: 1,
+	playerId: undefined,
+	baseStats: { Vitality: 10, Strength: 10, Dexterity: 20, Magic: 10,Spirit: 10},
+	scaling: { Vitality: 2, Strength: 2, Dexterity: 2, Magic: 1,Spirit: 1},
+	xpRequiredMultiplier:4,
+	currentXp:0,
+	Sprites : {idle: sPlayerIdle,down: sPlayerDead},
+	actions: [global.actionLibrary.lightning,global.actionLibrary.attack]
+},
 ];
 function scalePartyStats()
 {
@@ -73,9 +83,9 @@ function scalePartyStats()
 	 
 		//player derived stats
 		 _curPartyMember.hpMax = round(( _curPartyMember.Vitality+ _curPartyMember.Strength+ _curPartyMember.Dexterity)/3*10);
-		 _curPartyMember.hp =  _curPartyMember.hpMax;
 		 _curPartyMember.mpMax =round(( _curPartyMember.Magic+ _curPartyMember.Spirit)/2);
 		 _curPartyMember.mp =  _curPartyMember.mpMax;
+		 _curPartyMember.hp =  _curPartyMember.hpMax;
 		 //xp
 		_curPartyMember.xpRequired = _curPartyMember.xpRequiredMultiplier*_curPartyMember.Level
 	}
