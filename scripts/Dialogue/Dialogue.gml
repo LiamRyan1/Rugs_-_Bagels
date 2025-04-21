@@ -29,13 +29,26 @@ welcome_dialogue = [
 {
 	name:"World",
 	msg: "You Recieved Lightning Spell",
-	addSpellToParty: function() {
+	addSpellToParty: 
+	function() 
+		{
 			for (var i = 0; i < array_length(global.party); i++) 
 			{
-			 array_push(global.party[i].actions, global.actionLibrary.lightning);
-			}				
+				var _actions = global.party[i].actions;
+				var hasLightning = false;
+				for (var j = 0; j < array_length(_actions); j++) 
+				{
+					if (_actions[j] == global.actionLibrary.lightning) {
+					hasLightning = true;
+					break;
+					}
+				}
+				if (!hasLightning)
+				{
+					 array_push(global.party[i].actions, global.actionLibrary.lightning);
+				}				
+			}
 		}
+		
 },
-
-
 ]
