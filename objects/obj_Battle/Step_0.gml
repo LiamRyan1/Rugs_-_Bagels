@@ -154,7 +154,7 @@ function battleStateBattleWon()
 					show_debug_message("entered")
 				}
 				battleText +=  string(global.party[i].name) + " Experience: " + string(global.party[i].currentXp) + "/ " +  string(global.party[i].xpRequired)+ "\n";
-				if(keyboard_check_pressed(vk_enter))
+				if(keyboard_check_pressed(vk_enter) || gamepad_button_check_pressed(4,gp_face3))
 				{
 					global.xpReceived = false;
 					lvlup = false;
