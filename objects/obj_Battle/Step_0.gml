@@ -6,10 +6,21 @@ if(cursor.active)
 {
 	with(cursor)
 	{
-		var _keyLeft = keyboard_check_pressed(vk_left) || keyboard_check_pressed(ord("A"))   || gamepad_button_check_pressed(4,gp_padl);
-		var _keyRight = keyboard_check_pressed(vk_right) || keyboard_check_pressed(ord("D"))  || gamepad_button_check_pressed(4,gp_padr);
-		var _keyUp =   keyboard_check_pressed(vk_up)  ||keyboard_check_pressed(ord("W"))  || gamepad_button_check_pressed(4,gp_padd) ;
-		var _keyDown = keyboard_check_pressed(vk_down) || keyboard_check_pressed(ord("S"))  || gamepad_button_check_pressed(4,gp_padu);
+		var _keyLeft = keyboard_check_pressed(vk_left) || keyboard_check_pressed(ord("A"));
+		var _keyRight = keyboard_check_pressed(vk_right) || keyboard_check_pressed(ord("D"));
+		var _keyUp =   keyboard_check_pressed(vk_up)  ||keyboard_check_pressed(ord("W"));
+		var _keyDown = keyboard_check_pressed(vk_down) || keyboard_check_pressed(ord("S"));
+		
+		 for (var i = 0; i <= 11; i++)
+			 {
+				if (gamepad_is_connected(i))
+				{
+					 _keyLeft = _keyLeft || gamepad_button_check_pressed(i,gp_padl);
+					 _keyRight = _keyRight || gamepad_button_check_pressed(i,gp_padr);
+					 _keyUp =   _keyUp || gamepad_button_check_pressed(i,gp_padd) 
+					 _keyDown  = _keyDown || gamepad_button_check_pressed(i,gp_padu);
+				 }
+			 }
 		
 		var _keyToggle = false;
 		var _keyConfirm = false;
@@ -17,9 +28,18 @@ if(cursor.active)
 		confirmDelay++;
 		if(confirmDelay > 1)
 		{
-			_keyToggle = keyboard_check_pressed(vk_shift) || gamepad_button_check_pressed(4,gp_face4);
-			_keyConfirm = keyboard_check_pressed(vk_enter) || gamepad_button_check_pressed(4,gp_face3);
-			_keyCancel =  keyboard_check_pressed(vk_escape) ||  gamepad_button_check_pressed(4,gp_face2);
+			_keyToggle = keyboard_check_pressed(vk_shift);
+			_keyConfirm = keyboard_check_pressed(vk_enter);
+			_keyCancel =  keyboard_check_pressed(vk_escape);
+			 for (var i = 0; i <= 11; i++)
+			 {
+				if (gamepad_is_connected(i))
+				{
+					 _keyToggle = _keyToggle || gamepad_button_check_pressed(i, gp_face4);
+					 _keyConfirm = _keyConfirm || gamepad_button_check_pressed(i, gp_face3);
+					 _keyCancel = _keyCancel  || gamepad_button_check_pressed(i, gp_face2);
+				 }
+			 }
 		}
 		var _moveH = _keyRight - _keyLeft;
 		var _moveV = _keyDown - _keyUp;
@@ -154,7 +174,15 @@ function battleStateBattleWon()
 					show_debug_message("entered")
 				}
 				battleText +=  string(global.party[i].name) + " Experience: " + string(global.party[i].currentXp) + "/ " +  string(global.party[i].xpRequired)+ "\n";
-				if(keyboard_check_pressed(vk_enter) || gamepad_button_check_pressed(4,gp_face3))
+				var _ConfirmBattleEnd = keyboard_check_pressed(vk_enter);
+				for (var i = 0; i <= 11; i++)
+				{
+					if (gamepad_is_connected(i))
+					{
+						_ConfirmBattleEnd = _ConfirmBattleEnd || gamepad_button_check_pressed(i, gp_face3);
+					}
+				}
+				if(_ConfirmBattleEnd)
 				{
 					global.xpReceived = false;
 					lvlup = false;
