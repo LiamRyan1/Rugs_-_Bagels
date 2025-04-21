@@ -64,7 +64,7 @@ global.party =
 	xpRequiredMultiplier:4,
 	currentXp:0,
 	Sprites : {idle: sPlayerIdle,down: sPlayerDead},
-	actions: [global.actionLibrary.lightning,global.actionLibrary.attack]
+	actions: [global.actionLibrary.attack]
 },
 ];
 function scalePartyStats()

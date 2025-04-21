@@ -10,6 +10,12 @@ if (current_char < string_length(_str))
 }
 else if (keyboard_check_pressed(input_key))
 {
+	if (variable_instance_exists(messages[current_message], "addSpellToParty")) {
+		var _addSpell = messages[current_message].addSpellToParty;
+		if (is_callable(_addSpell)) {
+			_addSpell();
+		}
+	}
 	current_message++;
 	if (current_message >= array_length(messages))
 	{

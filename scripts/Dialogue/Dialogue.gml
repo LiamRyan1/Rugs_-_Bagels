@@ -8,7 +8,8 @@ function create_dialogue(_messages){
 
 char_colors = {
 	"Merchant:": c_white,
-	"Hero:": c_lime
+	"Hero:": c_lime,
+	"World": c_silver
 }
 
 welcome_dialogue = [
@@ -23,7 +24,17 @@ welcome_dialogue = [
 },
 {
 	name: "Merchant:",
-	msg: "Please take a look ..."
+	msg: "Please take a look ...But first heres a lightning spell as a Gift",
+},
+{
+	name:"World",
+	msg: "You Recieved Lightning Spell",
+	addSpellToParty: function() {
+			for (var i = 0; i < array_length(global.party); i++) 
+			{
+			 array_push(global.party[i].actions, global.actionLibrary.lightning);
+			}				
+		}
 },
 
 
