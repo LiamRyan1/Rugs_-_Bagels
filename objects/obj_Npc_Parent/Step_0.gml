@@ -1,3 +1,6 @@
+
+
+
 if(instance_exists(obj_Dialogue)) exit;
 
 if(instance_exists(obj_Player) && distance_to_object(obj_Player) < 8)

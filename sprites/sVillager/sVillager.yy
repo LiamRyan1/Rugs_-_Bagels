@@ -1,11 +1,11 @@
 {
   "$GMSprite":"",
   "%Name":"sVillager",
-  "bboxMode":0,
+  "bboxMode":2,
   "bbox_bottom":23,
   "bbox_left":2,
   "bbox_right":12,
-  "bbox_top":5,
+  "bbox_top":19,
   "collisionKind":1,
   "collisionTolerance":0,
   "DynamicTexturePage":false,
