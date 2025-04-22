@@ -1,4 +1,4 @@
-distanceFromPlayer = 80;
+AggrodistanceFromPlayer = 80;
 moveSpeed = 1;
 hSpeed = 0;
 vSpeed = 0;
