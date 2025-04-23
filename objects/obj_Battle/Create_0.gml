@@ -110,7 +110,12 @@ function BattleStateSelectAction()
 					{
 						 _available = true; 
 					}
-					var _nameAndCount = _action.name; //may need to modify to include item count if action action is a item
+					var _nameAndCount = _action.name; 
+					if(_action.subMenu == "inventory")
+					{
+						_nameAndCount += " " + string( ItemAmount(playerInv,_action.name));
+					}
+					
 					show_debug_message("Action: " + string(_action.name) + " | subMenu: " + string(_action.subMenu));
 					if(_action.subMenu == -1)
 					{
@@ -134,10 +139,6 @@ function BattleStateSelectAction()
 				var _subMenusArray = variable_struct_get_names(_subMenus);
 				for(var i = 0; i< array_length(_subMenusArray); i++)
 				{
-					
-					//sort submenus contents here if we decide to 
-					//here
-					
 					//add back option to each submenu
 					array_push(_subMenus[$ _subMenusArray[i]],["Back",MenuGoBack,-1,true]);
 					//add submenu to main top lvl menu
@@ -155,9 +156,11 @@ function BattleStateSelectAction()
 }
 function BeginAction(_user,_action,_targets)
 {
+	
 	currentUser = _user;
 	currentAction = _action;
 	currentTargets = _targets;
+	
 	battleText = string_ext(_action.description,[_user.name]);
 	if(!is_array(currentTargets))currentTargets = [currentTargets];
 	battleWaitTimeRemaining = battleWaitTimeFrames;
@@ -173,6 +176,11 @@ function BeginAction(_user,_action,_targets)
 		}
 	}
 	show_debug_message("Current frame: " + string(currentUser.image_index) + " / " + string(currentUser.image_number));
+	if(_action.subMenu == "inventory")
+	{
+		show_debug_message("Consuming item");
+		ItemConsume(playerInv,_action);
+	}
 	battleState = BattleStatePerformAction;
 }
 function BattleStatePerformAction()

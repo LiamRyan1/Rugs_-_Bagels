@@ -40,6 +40,24 @@ global.actionLibrary =
 			}
 			BattleChangeMp(-global.actionLibrary.lightning.mpCost,_user);
 		}
+	},
+	HealthPotion:
+	{
+		name: "Health Potion",
+		description: "{0} drank a health potion!",
+		subMenu: "inventory",
+		targetRequired: true,
+		targetEnemyByDefault: false,
+		targetAll: MODE.NEVER,
+		userAnimation : "idle",
+		effectSprite : sAttackSlash,
+		effectOnTarget: MODE.ALWAYS,
+		mpCost: 0,
+		func: function(_user,_targets)
+		{
+			BattleChangeHp(_targets[0],30,0)
+			show_debug_message("Getting called?");
+		}
 	}
 }
 
