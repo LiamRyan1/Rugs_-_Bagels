@@ -34,7 +34,6 @@
     {"$GMFolder":"","%Name":"NPC'S","folderPath":"folders/Sprites/NPC'S.yy","name":"NPC'S","resourceType":"GMFolder","resourceVersion":"2.0",},
     {"$GMFolder":"","%Name":"Weapons","folderPath":"folders/Sprites/Weapons.yy","name":"Weapons","resourceType":"GMFolder","resourceVersion":"2.0",},
     {"$GMFolder":"","%Name":"Tile Sets","folderPath":"folders/Tile Sets.yy","name":"Tile Sets","resourceType":"GMFolder","resourceVersion":"2.0",},
-    {"$GMFolder":"","%Name":"Timelines","folderPath":"folders/Timelines.yy","name":"Timelines","resourceType":"GMFolder","resourceVersion":"2.0",},
   ],
   "ForcedPrefabProjectReferences":[],
   "IncludedFiles":[
@@ -106,6 +105,7 @@
     {"id":{"name":"sExit","path":"sprites/sExit/sExit.yy",},},
     {"id":{"name":"sGold","path":"sprites/sGold/sGold.yy",},},
     {"id":{"name":"sHealthPotion","path":"sprites/sHealthPotion/sHealthPotion.yy",},},
+    {"id":{"name":"sHorizontalWood","path":"sprites/sHorizontalWood/sHorizontalWood.yy",},},
     {"id":{"name":"sInventory","path":"sprites/sInventory/sInventory.yy",},},
     {"id":{"name":"sPlayer","path":"sprites/sPlayer/sPlayer.yy",},},
     {"id":{"name":"sPlayer2","path":"sprites/sPlayer2/sPlayer2.yy",},},
@@ -120,6 +120,7 @@
     {"id":{"name":"sSkeletonIdle","path":"sprites/sSkeletonIdle/sSkeletonIdle.yy",},},
     {"id":{"name":"sTextboxes","path":"sprites/sTextboxes/sTextboxes.yy",},},
     {"id":{"name":"sUpdatedTextures","path":"sprites/sUpdatedTextures/sUpdatedTextures.yy",},},
+    {"id":{"name":"sVerticalWood","path":"sprites/sVerticalWood/sVerticalWood.yy",},},
     {"id":{"name":"sVillager","path":"sprites/sVillager/sVillager.yy",},},
     {"id":{"name":"tCol","path":"tilesets/tCol/tCol.yy",},},
     {"id":{"name":"tColours","path":"tilesets/tColours/tColours.yy",},},
