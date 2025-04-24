@@ -8,3 +8,6 @@ else
 	show_debug_message("ran enemy lvl now: " + string(global.enemies.Skeleton.Level));
 }
 scaleEnemyStats();
+
+
+audio_play_sound(snd_MainTheme, 0, true);
