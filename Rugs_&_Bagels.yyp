@@ -108,6 +108,7 @@
     {"id":{"name":"sHealthPotion","path":"sprites/sHealthPotion/sHealthPotion.yy",},},
     {"id":{"name":"sHorizontalWood","path":"sprites/sHorizontalWood/sHorizontalWood.yy",},},
     {"id":{"name":"sInventory","path":"sprites/sInventory/sInventory.yy",},},
+    {"id":{"name":"sManaPotion","path":"sprites/sManaPotion/sManaPotion.yy",},},
     {"id":{"name":"sPlayer","path":"sprites/sPlayer/sPlayer.yy",},},
     {"id":{"name":"sPlayer2","path":"sprites/sPlayer2/sPlayer2.yy",},},
     {"id":{"name":"sPlayerDead","path":"sprites/sPlayerDead/sPlayerDead.yy",},},
