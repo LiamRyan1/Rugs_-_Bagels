@@ -32,6 +32,9 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":null,
-  "spriteMaskId":null,
+  "spriteMaskId":{
+    "name":"sHealthPotion",
+    "path":"sprites/sHealthPotion/sHealthPotion.yy",
+  },
   "visible":true,
 }
