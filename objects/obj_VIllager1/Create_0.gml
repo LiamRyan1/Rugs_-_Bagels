@@ -1,2 +1,2 @@
 event_inherited();
-dialouge = undefined;
+dialog = undefined;

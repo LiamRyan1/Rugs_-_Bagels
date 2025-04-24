@@ -8,7 +8,7 @@
   "managed":true,
   "name":"obj_VIllager1",
   "overriddenProperties":[
-    {"$GMOverriddenProperty":"v1","%Name":"","name":"","objectId":{"name":"obj_Npc_Parent","path":"objects/obj_Npc_Parent/obj_Npc_Parent.yy",},"propertyId":{"name":"dialog","path":"objects/obj_Npc_Parent/obj_Npc_Parent.yy",},"resourceType":"GMOverriddenProperty","resourceVersion":"2.0","value":"global.welcome_dialogue",},
+    {"$GMOverriddenProperty":"v1","%Name":"","name":"","objectId":{"name":"obj_Npc_Parent","path":"objects/obj_Npc_Parent/obj_Npc_Parent.yy",},"propertyId":{"name":"dialog","path":"objects/obj_Npc_Parent/obj_Npc_Parent.yy",},"resourceType":"GMOverriddenProperty","resourceVersion":"2.0","value":"undefined",},
   ],
   "parent":{
     "name":"NPC'S",

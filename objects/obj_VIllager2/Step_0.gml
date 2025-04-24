@@ -1,4 +1,6 @@
-if(ds_map_find_value(global.dialogue_flags, "welcome_dialogue") && !ds_map_find_value(global.dialogue_flags, "forestEntrance1") && !ds_map_find_value(global.dialogue_flags, "forestEntrance2"))
+if(ds_map_find_value(global.dialogue_flags, "welcome_dialogue") 
+&& !ds_map_find_value(global.dialogue_flags, "forestEntrance1")
+&& !ds_map_find_value(global.dialogue_flags, "forestEntrance2"))
 {
 	dialog = global.forestEntrance1_dialogue;
 }

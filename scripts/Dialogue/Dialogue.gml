@@ -11,7 +11,11 @@ function create_dialogue(_messages) {
     }
 }
 global.dialogue_flags = ds_map_create();
+//gundren
 ds_map_add(global.dialogue_flags, "welcome_dialogue",false);
+ds_map_add(global.dialogue_flags, "welcome2_dialogue",false);
+ds_map_add(global.dialogue_flags, "welcomeNotFoundSildar",false);
+ds_map_add(global.dialogue_flags, "welcomeFoundSildar",false);
 //sildar
 ds_map_add(global.dialogue_flags, "forestEntrance1", false);
 ds_map_add(global.dialogue_flags, "forestEntrance2", false);
@@ -25,6 +29,7 @@ char_colors = {
     "Sildar:": c_yellow
 };
 
+//gundren
 welcome_dialogue = 
 {
 	 identifier: "welcome_dialogue",
@@ -93,6 +98,101 @@ welcome_dialogue =
     },	
 ]};
 
+welcome2_dialogue = 
+{
+	 identifier: "welcome2_dialogue",
+	 messages:
+	 [
+    {
+        name: "Hero:",
+        msg: "Are you perhaps Gundren?"
+    },
+    {
+        name: "Gundren:",
+        msg: "Who's asking ,These are troubling times..."
+    },
+    {
+        name: "Hero:",
+        msg: "Sildar told me to talk to you"
+    },
+	 {
+        name: "Hero:",
+        msg: "Hes just at the entrance to the forest"
+    },
+    {
+        name: "Gundren:",
+        msg: "Hes back safe ,Thank the Seven"
+    },
+    {
+        name: "Hero:",
+        msg: "Err ..."
+    },	
+    {
+        name: "Gundren:",
+        msg: "Here take this, you've been a great help"
+    },	
+    {
+        name: "World",
+        msg: "You received the Lightning Spell!",
+        addSpellToParty: function() {
+            for (var i = 0; i < array_length(global.party); i++) {
+                var _actions = global.party[i].actions;
+                var hasLightning = false;
+
+                for (var j = 0; j < array_length(_actions); j++) {
+                    if (_actions[j] == global.actionLibrary.lightning) {
+                        hasLightning = true;
+                        break;
+                    }
+                }
+
+                if (!hasLightning) {
+                    array_push(global.party[i].actions, global.actionLibrary.lightning);
+                }
+            }
+        }
+    },
+	{
+        name: "Hero:",
+        msg: "Thanks!"
+    },	
+]};
+welcomeNotFoundSildar_dialogue = 
+{
+	 identifier: "welcomeNotFoundSildar",
+	 messages:
+	 [
+	 {
+        name: "Gundren:",
+        msg: "Have you seen my brother Sildar Yet?"
+	},	
+	{
+        name: "Hero:",
+        msg: "Not yet"
+    },	
+	{
+        name: "Gundren:",
+        msg: "Hes an illusive fellow, Please tell me when you do"
+	},	
+	]
+};
+welcomeFoundSildar_dialogue = 
+{
+	 identifier: "welcomeFoundSildar",
+	 messages:
+	 [
+	 {
+        name: "Gundren:",
+        msg: "I can rest easy knowing sildars safe, good luck out there traveller"
+	},	
+	{
+        name: "Gundren:",
+        msg: "Good luck out there traveller"
+	},	
+	]
+};
+
+//sildar talkings 
 forestEntrance1_dialogue = {
 	 identifier: "forestEntrance1",
 	 messages: [
