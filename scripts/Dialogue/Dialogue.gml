@@ -2,9 +2,21 @@ function create_dialogue(_messages) {
     if (instance_exists(obj_Dialogue)) return;
 
     var _inst = instance_create_layer(0, 0, "Instances", obj_Dialogue);
-    _inst.messages = _messages;
+    _inst.messages = _messages.messages;
     _inst.current_message = 0;
+	 if (!is_undefined(_messages.identifier)) {
+		show_debug_message(string(ds_map_find_value(global.dialogue_flags,_messages.identifier)))
+        ds_map_replace(global.dialogue_flags, _messages.identifier, true);
+		show_debug_message(string(ds_map_find_value(global.dialogue_flags, _messages.identifier)))
+    }
 }
+global.dialogue_flags = ds_map_create();
+ds_map_add(global.dialogue_flags, "welcome_dialogue",false);
+//sildar
+ds_map_add(global.dialogue_flags, "forestEntrance1", false);
+ds_map_add(global.dialogue_flags, "forestEntrance2", false);
+ds_map_add(global.dialogue_flags, "forestEntranceTalkToSildar", false);
+ds_map_add(global.dialogue_flags, "forestEntranceTalkToSildarRepeat", false);
 
 char_colors = {
     "Gundren:": c_yellow,
@@ -13,7 +25,11 @@ char_colors = {
     "Sildar:": c_yellow
 };
 
-welcome_dialogue = [
+welcome_dialogue = 
+{
+	 identifier: "welcome_dialogue",
+	 messages:
+	 [
     {
         name: "Gundren:",
         msg: "Hail, traveller! Be careful out there!"
@@ -75,9 +91,11 @@ welcome_dialogue = [
         name: "Gundren:",
         msg: "He left earlier mumbling something about the forest ..."
     },	
-];
+]};
 
-forestEntrance1_dialogue = [
+forestEntrance1_dialogue = {
+	 identifier: "forestEntrance1",
+	 messages: [
     {
         name: "Sildar:",
         msg: "Hello, traveller!"
@@ -130,4 +148,78 @@ forestEntrance1_dialogue = [
         name: "Sildar:",
         msg: "I see you can take care of yourself. Good luck out there ..."
     },
-];
+]
+};
+forestEntrance2_dialogue ={
+	 identifier: "forestEntrance2",
+	 messages:[ 
+	{
+        name: "Sildar:",
+        msg: "Hello, traveller!"
+    },
+    {
+        name: "Sildar:",
+        msg: "This place can be strange sometimes..."
+    },
+    {
+        name: "Hero:",
+        msg: "What do you mean? ...."
+    },
+    {
+        name: "Sildar:",
+        msg: "There have been reports of skeletons in the woods!"
+    },
+    {
+        name: "Hero:",
+        msg: "Thanks for the warning..."
+    },
+	{
+        name: "Sildar:",
+        msg: "Wait! Before you go..."
+    },
+	{
+        name: "Sildar:",
+        msg: "My brother Gundren may have something to help you ..."
+    },
+	{
+        name: "Hero:",
+        msg: "Where?"
+    },
+	{
+        name: "Sildar:",
+        msg: "In the center of the village you can't miss him."
+    },
+	{
+        name: "Sildar:",
+        msg: "He was muttering something about his spell finally working."
+    },
+	{
+        name: "Sildar:",
+        msg: "Some extra fire power would help you"
+    },
+	{
+        name: "Hero:",
+        msg: "Thanks i'll be sure to check him out"
+    },
+]
+};
+forestEntranceTalkToSildar_dialogue = {
+	 identifier: "forestEntranceTalkToSildar",
+	 messages: [
+    {
+        name: "Sildar:",
+        msg: "I really do think you should talk with my brother!"
+    },
+	{
+        name: "Sildar:",
+        msg: "The skeletons dont take prisoners!"
+    }]
+};
+forestEntranceTalkToSildarRepeat_dialogue = {
+	 identifier: "forestEntranceTalkToSildarRepeat",
+	 messages: [
+    {
+        name: "Sildar:",
+        msg: "Good Luck Traveler you'll need it"
+    },]
+};
