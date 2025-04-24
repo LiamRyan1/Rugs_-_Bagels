@@ -1,5 +1,6 @@
-myItemName = "Dragon Slayer";
+myItemName = "Dragon Slayer PowerSlash";
 myItemAmount = 1;
-myItemDescription = "A very big sword";
+myItemDescription = "Slayer of webdragons";
 myItemSprite = sDragonSlayer;
-myItemScript = "";
+myItemScript = "DragonSlayer";
+myItemConsumable = false;

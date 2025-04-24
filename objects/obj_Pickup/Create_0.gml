@@ -5,7 +5,7 @@ myItemAmount = undefined;
 myItemDescription = undefined;
 myItemSprite = undefined;
 myItemScript = undefined;
-
+myItemConsumable = undefined;
 
 
 

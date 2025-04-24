@@ -1,5 +1,7 @@
-function addItem(gridToAddTo, newItemName, newItemAmount, newItemDescription, newItemSprite, newItemScript) {
-    // Ensure the grid exists before using it
+function addItem(gridToAddTo, newItemName, newItemAmount, newItemDescription, newItemSprite, newItemScript,newItemConsumable) {
+    
+	
+	// Ensure the grid exists before using it
     if (is_undefined(gridToAddTo)) {
         show_debug_message("ERROR: gridToAddTo is undefined!");
         return false;
@@ -26,7 +28,7 @@ function addItem(gridToAddTo, newItemName, newItemAmount, newItemDescription, ne
     ds_grid_set(gridToAddTo, 2, newItemSpot, newItemDescription);
     ds_grid_set(gridToAddTo, 3, newItemSpot, newItemSprite);
     ds_grid_set(gridToAddTo, 4, newItemSpot, newItemScript);
-	
+	ds_grid_set(gridToAddTo, 5, newItemSpot, newItemConsumable);
 	//get the each key
 	var _keys = variable_struct_get_names(global.actionLibrary);
 	for(var i = 0; i < array_length(_keys); i++)
@@ -61,29 +63,35 @@ function ItemConsume(inventory,action)
 	for (var i = 0; i < ds_grid_height(inventory); ++i) {
         if (ds_grid_get(inventory, 0, i) == action.name) {
 			//lowering amount from grid
-			//show_debug_message("old amount" + string(ds_grid_get(inventory, 1, i)));
-			var _newAmount = ds_grid_get(inventory, 1, i) -1;
-			//show_debug_message("amount " + string(_newAmount));
-			if(_newAmount > 0)
+			show_debug_message("old amount" + string(ds_grid_get(inventory, 1, i)));
+			show_debug_message("is item consumable: " + string(ds_grid_get(inventory,5, i)));
+			if(ds_grid_get(inventory,5, i) == true)
 			{
-				ds_grid_set(inventory, 1, i, _newAmount);
-				//show_debug_message("new amount" + string(ds_grid_get(inventory, 1, i)));
-			}
-			else if(_newAmount <= 0)
-			{
-				playerInv = GridRemoveRow(inventory, i);
-				for(var j = 0; j < array_length(global.party[0].actions); j++)
+				var _newAmount = ds_grid_get(inventory, 1, i) -1;
+				show_debug_message("amount " + string(_newAmount));
+				if(_newAmount > 0)
 				{
-					if(global.party[0].actions[j] == action)
+					ds_grid_set(inventory, 1, i, _newAmount);
+					//show_debug_message("new amount" + string(ds_grid_get(inventory, 1, i)));
+				}
+				else if(_newAmount <= 0)
+				{
+					playerInv = GridRemoveRow(inventory, i);
+					for(var j = 0; j < array_length(global.party[0].actions); j++)
 					{
-						array_delete(global.party[0].actions,j,1);
+						if(global.party[0].actions[j] == action)
+						{
+						
+							array_delete(global.party[0].actions,j,1);
+						}
 					}
 				}
 				break;
 			}
-        }
-    }
+		}
+	}
 }
+
 function GridRemoveRow(OldInventory, rowToRemove) {
     var cols = ds_grid_width(OldInventory);
     var rows = ds_grid_height(OldInventory);

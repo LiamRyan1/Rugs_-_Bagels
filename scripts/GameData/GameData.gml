@@ -19,6 +19,27 @@ global.actionLibrary =
 			show_debug_message("Getting called?");
 		}
 	},
+	DragonSlayer:
+	{
+		name: "Dragon Slayer PowerSlash",
+		description: "{0} attacks with Dragon Slayer!",
+		subMenu: -1,
+		targetRequired: true,
+		targetEnemyByDefault: true,
+		targetAll: MODE.NEVER,
+		userAnimation : "idle",
+		effectSprite : sAttackSlash,
+		effectOnTarget: MODE.ALWAYS,
+		mpCost: 2,
+		func: function(_user,_targets)
+		{
+			var _damage = ceil(_user.Strength + random_range(-_user.Dexterity * 0.25, _user.Dexterity  * 0.25)*2);
+		
+			BattleChangeHp(_targets[0],-_damage,0)
+			BattleChangeMp(-global.actionLibrary.DragonSlayer.mpCost,_user);
+			show_debug_message("Getting called?");
+		}
+	},
 	lightning:
 	{
 		name: "Lightning",
