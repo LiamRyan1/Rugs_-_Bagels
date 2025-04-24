@@ -3,7 +3,7 @@ if(!ds_map_find_value(global.dialogue_flags, "welcome_dialogue")
 && !ds_map_find_value(global.dialogue_flags, "forestEntrance2"))
 {
 	
-	show_debug_message("Welcome" + string(ds_map_find_value(global.dialogue_flags, "welcome_dialogue")));
+	
 	dialog = global.welcome_dialogue;
 }
 else if(!ds_map_find_value(global.dialogue_flags, "welcome_dialogue") 

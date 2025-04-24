@@ -184,7 +184,7 @@ welcomeFoundSildar_dialogue =
 	 [
 	 {
         name: "Gundren:",
-        msg: "I can rest easy knowing sildars safe, good luck out there traveller"
+        msg: "I can rest easy knowing sildars safe"
 	},	
 	{
         name: "Gundren:",
