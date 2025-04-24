@@ -21,9 +21,9 @@ global.actionLibrary =
 	},
 	DragonSlayer:
 	{
-		name: "Dragon Slayer PowerSlash",
+		name: "Dragon Slayer",
 		description: "{0} attacks with Dragon Slayer!",
-		subMenu: -1,
+		subMenu: "inventory",
 		targetRequired: true,
 		targetEnemyByDefault: true,
 		targetAll: MODE.NEVER,
