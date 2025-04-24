@@ -33,6 +33,7 @@ draw_set_font(fnt_inventory);  // Use your custom font (fnt_inventory)
 // Set text properties
 draw_set_halign(fa_left);   // Align text to the left
 draw_set_valign(fa_top);    // Align text to the top
+draw_set_alpha(0.75);
 draw_set_color(myColour);   // Set the text color (myColour can be any color like c_black, etc.)
 
 // Define text padding inside the inventory box
