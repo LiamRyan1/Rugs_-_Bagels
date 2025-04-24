@@ -1,1 +1,1 @@
-NewEncounter([global.enemies.Skeleton], sBattleBackground1);
+NewEncounter([], sBattleBackground1);

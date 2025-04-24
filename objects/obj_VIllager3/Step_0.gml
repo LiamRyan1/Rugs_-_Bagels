@@ -1,7 +1,7 @@
 // obj_Qelline Step Event
 
 // Choose which dialogue to use based on the flag
-if (ds_map_find_value(global.dialogue_flags, "qellinePreFight_done")) {
+if (ds_map_find_value(global.dialogue_flags, "qellinePreFight_done") && !instance_exists(obj_Skeleton)) {
     dialog = global.qellinePostFight_dialogue;
 } else {
     dialog = global.qellinePreFight_dialogue;
