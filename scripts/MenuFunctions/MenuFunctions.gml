@@ -23,7 +23,7 @@ function Menu(_x,_y,_options,_description =-1,_width = undefined,_height = undef
 			{
 				width = max(width, string_width(_options[i][0]));
 			}
-			widthFull = width + xMargin * 2;
+			widthFull = width + xMargin * 3;
 		}else widthFull = _width;
 		
 		//auto height

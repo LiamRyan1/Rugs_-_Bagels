@@ -113,7 +113,7 @@ function BattleStateSelectAction()
 					var _nameAndCount = _action.name; 
 					if(_action.subMenu == "inventory")
 					{
-						_nameAndCount += " " + string( ItemAmount(playerInv,_action.name));
+						_nameAndCount += " X" + string( ItemAmount(playerInv,_action.name));
 					}
 					
 					show_debug_message("Action: " + string(_action.name) + " | subMenu: " + string(_action.subMenu));

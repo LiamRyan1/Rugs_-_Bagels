@@ -57,6 +57,7 @@ function ItemAmount(inventory,itemName)
 }
 function ItemConsume(inventory,action)
 {
+	
 	for (var i = 0; i < ds_grid_height(inventory); ++i) {
         if (ds_grid_get(inventory, 0, i) == action.name) {
 			//lowering amount from grid

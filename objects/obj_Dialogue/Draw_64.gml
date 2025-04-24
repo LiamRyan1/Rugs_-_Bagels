@@ -18,6 +18,7 @@ draw_text(30, 140, _name);
 draw_set_color(c_white);
 
 _dy += 40;
+//limit drawing area
 
-//  draw_text_ext Draws the dialogue box with word wrapping
-draw_text_ext(140, 140, draw_message, -1, 150);
+//draw_text_ext Draws the dialogue box with word wrapping
+draw_text_ext(170, 140, draw_message, _boxh - (_dy + 16), 170);
