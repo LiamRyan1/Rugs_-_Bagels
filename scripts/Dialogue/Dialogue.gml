@@ -22,7 +22,8 @@ char_colors = {
     "Gundren:": c_yellow,
     "Hero:": c_lime,
     "World": c_black,
-    "Sildar:": c_yellow
+    "Sildar:": c_yellow,
+	"Qelline:": c_purple,
 };
 
 welcome_dialogue = 
@@ -92,6 +93,21 @@ welcome_dialogue =
         msg: "He left earlier mumbling something about the forest ..."
     },	
 ]};
+
+qellinePreFight_dialogue = {
+	 
+	 messages: [
+    {
+        name: "Qelline:",
+        msg: "Hello, traveller!"
+    },
+    {
+        name: "Qelline:",
+        msg: "This place can be strange sometimes..."
+    },
+
+]
+};
 
 forestEntrance1_dialogue = {
 	 identifier: "forestEntrance1",
