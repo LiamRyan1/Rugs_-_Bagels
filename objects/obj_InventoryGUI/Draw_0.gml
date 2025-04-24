@@ -33,7 +33,6 @@ draw_set_font(fnt_inventory);  // Use your custom font (fnt_inventory)
 // Set text properties
 draw_set_halign(fa_left);   // Align text to the left
 draw_set_valign(fa_top);    // Align text to the top
-draw_set_alpha(0.75);
 draw_set_color(myColour);   // Set the text color (myColour can be any color like c_black, etc.)
 
 // Define text padding inside the inventory box
@@ -54,9 +53,6 @@ var itemLeftStart = inventoryX -10;  // X position for items
 var itemTopStart = inventoryY - 30;   // Y position for items
 
 // Loop through items in the inventory and draw them
-// Loop through items in the inventory and draw
-// Loop through items in the inventory and draw
-// Loop through items in the inventory and draw
 for (i = 0; i < inventoryEndAt; i++) {
     // Correctly fetch item name (column 0), amount (column 1), and sprite (column 3)
     var itemName = ds_grid_get(myItems, 0, i);  // Item name (column 0)
@@ -65,12 +61,15 @@ for (i = 0; i < inventoryEndAt; i++) {
 
     // Draw the item sprite (scaled or not)
     if (sprite_exists(itemSprite)) {
-        var spriteSize = 32; // Adjust sprite size if needed
-        draw_sprite(itemSprite, 0, itemLeftStart - 40, itemTopStart + (i * 32));  // Draw sprite to the left of the text
+        var spriteSize = 16; // Adjust sprite size if needed
+        draw_sprite(itemSprite, 0, itemLeftStart - 40, itemTopStart + (i * 16));  // Draw sprite to the left of the text
     }
-
     // Draw the item name and amount (properly aligned)
-    draw_text(itemLeftStart, itemTopStart + (i * 32), itemName);  // Draw item name
-    draw_text(itemLeftStart + max_text_width * 0.55, itemTopStart + (i * 32), string(itemAmount));  // Draw item amount
+    draw_text(itemLeftStart, itemTopStart + (i * 16), itemName);  // Draw item name
+    draw_text(itemLeftStart + max_text_width * 0.55, itemTopStart + (i * 16), string(itemAmount));  // Draw item amount
 }
-gpu_set_scissor(0, 0, display_get_width(), display_get_height());
+
+draw_set_halign(fa_center);  
+draw_set_valign(fa_middle);   
+          
+draw_set_color(c_white);      

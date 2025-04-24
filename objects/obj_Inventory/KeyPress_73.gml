@@ -9,5 +9,6 @@ if(!instance_exists(obj_InventoryGUI))
 	} 
 	else
 	{
+	gpu_set_scissor(0, 0, display_get_width(), display_get_height());
 	instance_destroy(obj_InventoryGUI)
 	}

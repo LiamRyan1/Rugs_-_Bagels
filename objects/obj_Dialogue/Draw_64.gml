@@ -1,4 +1,4 @@
-
+draw_set_alpha(1);
 var _dx = 0;
 var _dy = gui_h * 0.7;
 var _boxw = gui_w;
@@ -20,6 +20,6 @@ draw_set_color(c_white);
 
 _dy += 40;
 //limit drawing area
-
+show_debug_message(string(_dy) + " gui h: " + string(gui_h) + " gui w " + string(gui_w) + " _boxh" + string(_boxh) )
 //draw_text_ext Draws the dialogue box with word wrapping
 draw_text_ext(170, 140, draw_message, _boxh - (_dy + 16), 170);
