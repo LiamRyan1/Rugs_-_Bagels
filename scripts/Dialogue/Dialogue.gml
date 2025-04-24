@@ -4,7 +4,7 @@ function create_dialogue(_messages) {
     var _inst = instance_create_layer(0, 0, "Instances", obj_Dialogue);
     _inst.messages = _messages.messages;
     _inst.current_message = 0;
-	 if (!is_undefined(_messages.identifier)) {
+	 if (variable_struct_exists(_messages, "identifier")) {
 		show_debug_message(string(ds_map_find_value(global.dialogue_flags,_messages.identifier)))
         ds_map_replace(global.dialogue_flags, _messages.identifier, true);
 		show_debug_message(string(ds_map_find_value(global.dialogue_flags, _messages.identifier)))
@@ -193,21 +193,6 @@ welcomeFoundSildar_dialogue =
 	]
 };
 
-//sildar talkings 
-qellinePreFight_dialogue = {
-	 
-	 messages: [
-    {
-        name: "Qelline:",
-        msg: "Hello, traveller!"
-    },
-    {
-        name: "Qelline:",
-        msg: "This place can be strange sometimes..."
-    },
-
-]
-};
 
 forestEntrance1_dialogue = {
 	 identifier: "forestEntrance1",
@@ -338,4 +323,34 @@ forestEntranceTalkToSildarRepeat_dialogue = {
         name: "Sildar:",
         msg: "Good Luck Traveler you'll need it"
     },]
+};
+
+qellinePreFight_dialogue = {
+    identifier: "qellinePreFight_done",
+    messages: [
+        {
+            name: "Qelline:",
+            msg: "Help traveller!"
+        },
+        {
+            name: "Qelline:",
+            msg: "One of those monsters is in the village!"
+        }
+    ]
+};
+
+
+qellinePostFight_dialogue = {
+	 
+	 messages: [
+    {
+        name: "Qelline:",
+        msg: "Thank you traveller!"
+    },
+    {
+        name: "Qelline:",
+        msg: "Please check the village for more of them..."
+    },
+
+]
 };
