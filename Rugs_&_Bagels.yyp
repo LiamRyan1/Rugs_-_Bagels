@@ -77,6 +77,7 @@
     {"id":{"name":"obj_Text","path":"objects/obj_Text/obj_Text.yy",},},
     {"id":{"name":"obj_TextQueued","path":"objects/obj_TextQueued/obj_TextQueued.yy",},},
     {"id":{"name":"obj_VIllager1","path":"objects/obj_VIllager1/obj_VIllager1.yy",},},
+    {"id":{"name":"obj_VIllager2","path":"objects/obj_VIllager2/obj_VIllager2.yy",},},
     {"id":{"name":"pEntity","path":"objects/pEntity/pEntity.yy",},},
     {"id":{"name":"rm_Forest","path":"rooms/rm_Forest/rm_Forest.yy",},},
     {"id":{"name":"rm_Menu","path":"rooms/rm_Menu/rm_Menu.yy",},},
