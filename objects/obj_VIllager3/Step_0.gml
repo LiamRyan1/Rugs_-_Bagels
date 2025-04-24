@@ -1,12 +1,20 @@
-dialouge = global.welcome_dialogue;
-event_inherited()
+// obj_Qelline Step Event
+
+// Choose which dialogue to use based on the flag
+if (ds_map_find_value(global.dialogue_flags, "qellinePreFight_done")) {
+    dialog = global.qellinePostFight_dialogue;
+} else {
+    dialog = global.qellinePreFight_dialogue;
+}
+
+event_inherited();
 
 // When dialogue ends and timer hasn't started, start it
-if (can_talk && !instance_exists(obj_Dialogue) && potion_timer == -1) {
-    potion_timer = room_speed * 5; // Start 5-second timer (room_speed = 1 second)
+if (can_talk && !instance_exists(obj_Dialogue) && warning_timer == -1) {
+    warning_timer = room_speed * 5; // Start 5-second timer (room_speed = 1 second)
 }
 
 // If timer is active, count down
-if (potion_timer > 0) {
-    potion_timer--;
+if (warning_timer > 0) {
+    warning_timer--;
 }
