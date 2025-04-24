@@ -79,6 +79,25 @@ global.actionLibrary =
 			BattleChangeHp(_targets[0],30,0)
 			show_debug_message("Getting called?");
 		}
+	},
+	
+	ManaPotion:
+	{
+		name: "Mana Potion",
+		description: "{0} drank a mana potion!",
+		subMenu: "inventory",
+		targetRequired: true,
+		targetEnemyByDefault: false,
+		targetAll: MODE.NEVER,
+		userAnimation : "idle",
+		effectSprite : sAttackSlash,
+		effectOnTarget: MODE.ALWAYS,
+		mpCost: 0,
+		func: function(_user,_targets)
+		{
+			BattleChangeMp(2, _targets[0])
+			show_debug_message("Getting called?");
+		}
 	}
 }
 
