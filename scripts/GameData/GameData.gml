@@ -205,7 +205,7 @@ global.enemies =
 		name: "Necromancer",
 		baseStats: { Vitality: 5, Strength: 10, Dexterity: 15, Magic:20,Spirit:20,},
 		scaling: { Vitality: 2, Strength: 2, Dexterity: 2, Magic: 3,Spirit:3 },
-		Sprites : {idle: sSkeletonIdle},
+		Sprites : {idle: sNecromancerIdle},
 		actions: [global.actionLibrary.attack,global.actionLibrary.DeathGrasp],
 		xpMultiplier: 1,
 		AIscript : function()

@@ -122,6 +122,7 @@
     {"id":{"name":"sLava2","path":"sprites/sLava2/sLava2.yy",},},
     {"id":{"name":"sManaPotion","path":"sprites/sManaPotion/sManaPotion.yy",},},
     {"id":{"name":"sNecromancer","path":"sprites/sNecromancer/sNecromancer.yy",},},
+    {"id":{"name":"sNecromancerIdle","path":"sprites/sNecromancerIdle/sNecromancerIdle.yy",},},
     {"id":{"name":"sPlayer","path":"sprites/sPlayer/sPlayer.yy",},},
     {"id":{"name":"sPlayer2","path":"sprites/sPlayer2/sPlayer2.yy",},},
     {"id":{"name":"sPlayerDead","path":"sprites/sPlayerDead/sPlayerDead.yy",},},
