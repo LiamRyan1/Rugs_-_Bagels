@@ -93,7 +93,7 @@ global.actionLibrary =
 		targetEnemyByDefault: false,
 		targetAll: MODE.NEVER,
 		userAnimation : "idle",
-		effectSprite : sAttackSlash,
+		effectSprite : sHealing,
 		effectOnTarget: MODE.ALWAYS,
 		mpCost: 0,
 		func: function(_user,_targets)
@@ -112,7 +112,7 @@ global.actionLibrary =
 		targetEnemyByDefault: false,
 		targetAll: MODE.NEVER,
 		userAnimation : "idle",
-		effectSprite : sAttackSlash,
+		effectSprite : sManaRegen,
 		effectOnTarget: MODE.ALWAYS,
 		mpCost: 0,
 		func: function(_user,_targets)
