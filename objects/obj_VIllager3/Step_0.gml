@@ -1,45 +1,48 @@
 // obj_Qelline Step Event
-
 // Choose which dialogue to use based on the flag
-if(!ds_map_find_value(global.dialogue_flags, "qellinePreFight_done") && instance_exists(obj_Skeleton)) {
+var _preDone = ds_map_find_value(global.dialogue_flags, "qellinePreFight_done");
+var _postDone = ds_map_find_value(global.dialogue_flags, "qellinePostFight_done");
+var _postNeverTalkedDone = ds_map_find_value(global.dialogue_flags, "qellinePostFightClearedNeverTalked_done");
+var _postForestClearedDone = ds_map_find_value(global.dialogue_flags, "qellinePostForestCleared_done");
+var _postNeverTalkedForestClearedDone = ds_map_find_value(global.dialogue_flags, "qellinePostFightNeverTalkedForestCleared_done");
+var _skeletonExists = instance_exists(obj_Skeleton);
+var _forestCleared = global.forestcleared;
+
+//talk before fighting in the village
+if(!_preDone && _skeletonExists) {
     dialog = global.qellinePreFight_dialogue;
 }
-else if (ds_map_find_value(global.dialogue_flags, "qellinePreFight_done")
-&& !instance_exists(obj_Skeleton) 
-&& !ds_map_find_value(global.dialogue_flags,"qellinePostFight_done"))
-&& global.forestcleared == false{
+//talk after fight in the village having talked before
+else if (_preDone && !_skeletonExists && !_forestCleared)
+{
+	show_debug_message("running post fight");
     dialog = global.qellinePostFight_dialogue;
 }
-else if(!ds_map_find_value(global.dialogue_flags, "qellinePreFight_done") 
-&& !instance_exists(obj_Skeleton) 
-&& !ds_map_find_value(global.dialogue_flags, "qellinePostFightClearedNeverTalked_done")
-&& global.forestcleared == false)
+//talk after having fought in the village having never talked before
+else if(!_preDone && !_skeletonExists  && !_forestCleared)
 {
 	dialog = global.qellinePostFightNeverTalked_dialogue;
 }
-else if( !instance_exists(obj_Skeleton) 
-&& !ds_map_find_value(global.dialogue_flags, "qellinePostFightClearedNeverTalked_done")
-&& !ds_map_find_value(global.dialogue_flags,"qellinePostFight_done")
-&& global.forestcleared == true
-&& !instance_exists(obj_Skeleton)
-&& !ds_map_find_value(global.dialogue_flags, "qellinePreFight_done"))
-{
-	dialog = global.qellinePostFightNeverTalkedForestCleared_dialogue;
-}
-else if((ds_map_find_value(global.dialogue_flags, "qellinePostFight_done") 
-|| ds_map_find_value(global.dialogue_flags, "qellinePostFightClearedNeverTalked_done")) 
-&& !ds_map_find_value(global.dialogue_flags, "qellinePostForestCleared_done") 
-&& global.forestcleared == true 
-&& !ds_map_find_value(global.dialogue_flags, "qellinePostFightNeverTalkedForestCleared_done")
-&& !instance_exists(obj_Skeleton))
+//talked to before killing the skele in the village then killed all skeletons in village and forest before talking again
+else if((_postDone || _postNeverTalkedDone) && !_postForestClearedDone  && !_postNeverTalkedForestClearedDone  && _forestCleared)
 {
 	show_debug_message("Forset is Cleared: " + string(global.forestcleared))
 	dialog = global.qellinePostForestCleared_dialogue;
 }
-else if((ds_map_find_value(global.dialogue_flags, "qellinePostForestCleared_done") || ds_map_find_value(global.dialogue_flags, "qellinePostFightNeverTalkedForestCleared_done")))
+//talk after clearing the forest having never talked
+else if( !_postNeverTalkedDone && !_postNeverTalkedForestClearedDone && !_postForestClearedDone  &&  _forestCleared && !_skeletonExists  )
+{
+	show_debug_message("cleared never talked post fight");
+	dialog = global.qellinePostFightNeverTalkedForestCleared_dialogue;
+	
+}
+
+else if(_postForestClearedDone || _postNeverTalkedForestClearedDone)
 {
 	dialog = global.qellineKillTheNecromancer_dialogue
 }
+
+
 if(global.NecromancerDead == true)
 {
 	dialog = global.qellineTheNecromancerKilled_dialogue;

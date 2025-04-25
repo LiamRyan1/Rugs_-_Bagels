@@ -43,7 +43,7 @@
           -2,1,-4,-2147483648,-12,1,-2,-2147483648,1,1,-20,-2147483648,1,1,-6,-2147483648,-10,1,-4,-2147483648,
           1,1,-5,-2147483648,1,1,-7,-2147483648,6,1,-2147483648,-2147483648,1,-2147483648,1,-6,-2147483648,-10,
           1,-6,-2147483648,3,1,-2147483648,1,-14,-2147483648,1,1,-11,-2147483648,-21,1,1,0,-7,1,
-        ],"TileDataFormat":1,},"tilesetId":{"name":"tCol","path":"tilesets/tCol/tCol.yy",},"userdefinedDepth":false,"visible":true,"x":0,"y":0,},
+        ],"TileDataFormat":1,},"tilesetId":{"name":"tCol","path":"tilesets/tCol/tCol.yy",},"userdefinedDepth":false,"visible":false,"x":0,"y":0,},
     {"$GMRTileLayer":"","%Name":"TilesUpper","depth":200,"effectEnabled":true,"effectType":null,"gridX":32,"gridY":32,"hierarchyFrozen":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"layers":[],"name":"TilesUpper","properties":[],"resourceType":"GMRTileLayer","resourceVersion":"2.0","tiles":{"SerialiseHeight":20,"SerialiseWidth":40,"TileCompressedData":[
           -41,3,-38,-2147483648,-2,3,2,-2147483648,3,-36,-2147483648,-2,3,-9,-2147483648,1,3,-7,-2147483648,1,
           3,-3,-2147483648,1,3,-3,-2147483648,4,3,-2147483648,-2147483648,3,-9,-2147483648,-2,3,2,-2147483648,
