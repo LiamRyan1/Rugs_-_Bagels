@@ -30,10 +30,10 @@
   "resourceType":"GMObject",
   "resourceVersion":"2.0",
   "solid":false,
-  "spriteId":{
+  "spriteId":null,
+  "spriteMaskId":{
     "name":"sExit",
     "path":"sprites/sExit/sExit.yy",
   },
-  "spriteMaskId":null,
   "visible":true,
 }
