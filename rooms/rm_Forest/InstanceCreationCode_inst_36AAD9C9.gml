@@ -1,3 +1,3 @@
 targetRoom = rm_Village;
-targetX = 287;
-targetY = 130;
+targetX = 612;
+targetY = 124;

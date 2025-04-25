@@ -1,6 +1,6 @@
 if(!instance_exists(obj_InventoryGUI))
 {
-		var inventoryDisplay = instance_create_depth(0, 0, depth - 1, obj_InventoryGUI)
+		var inventoryDisplay = instance_create_depth(0, 0, depth - 110, obj_InventoryGUI)
 		with (inventoryDisplay) {
 			// Set Position (Top-Left Corner)
 			x = sprite_get_xoffset(sprite_index);

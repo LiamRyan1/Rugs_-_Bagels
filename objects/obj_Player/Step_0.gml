@@ -1,5 +1,7 @@
 if(instance_exists(obj_Dialogue)) exit;
 
+
+
 //store boolean checks for keyboard input
 var _key_left = 0;
 var _key_right = 0;
@@ -74,4 +76,31 @@ if (place_meeting(x + hSpeed, y + vSpeed, obj_Player) || place_meeting(x + hSpee
     //stop movement entirely if collision occurs
     hSpeed = 0;
     vSpeed = 0;
+}
+
+// --- PART 1: ENTERING A BUILDING (Hide only its roof) ---
+var _entrance = instance_place(x, y, obj_EnterBuilding);
+if (_entrance != noone && _entrance.linked_roof != noone) 
+{
+    // Only destroy the roof linked to THIS entrance
+    with (_entrance.linked_roof) instance_destroy();
+    
+    // Debug
+    show_debug_message("Destroyed roof for entrance at " + string(_entrance.x) + "," + string(_entrance.y));
+}
+
+// --- PART 2: EXITING A BUILDING (Restore only its roof) ---
+var _exit = instance_place(x, y, obj_ExitBuilding);
+if (_exit != noone && !instance_exists(_exit.linked_roof_type)) 
+{
+    // Recreate only THIS exit's specific roof
+    instance_create_depth(
+        _exit.roof_x,      // Pre-set X position
+        _exit.roof_y,      // Pre-set Y position
+        _exit.roof_depth,  // Depth (e.g., -100)
+        _exit.linked_roof_type  // obj_Roof_House, etc.
+    );
+    
+    // Debug
+    show_debug_message("Restored roof at " + string(_exit.roof_x) + "," + string(_exit.roof_y));
 }
