@@ -35,8 +35,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"sVillager",
-    "path":"sprites/sVillager/sVillager.yy",
+    "name":"sVillager2",
+    "path":"sprites/sVillager2/sVillager2.yy",
   },
   "spriteMaskId":null,
   "visible":true,

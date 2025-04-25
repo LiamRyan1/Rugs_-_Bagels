@@ -123,6 +123,7 @@
     {"id":{"name":"sExit","path":"sprites/sExit/sExit.yy",},},
     {"id":{"name":"sFence1","path":"sprites/sFence1/sFence1.yy",},},
     {"id":{"name":"sFence2","path":"sprites/sFence2/sFence2.yy",},},
+    {"id":{"name":"sFinalBossBattle","path":"sprites/sFinalBossBattle/sFinalBossBattle.yy",},},
     {"id":{"name":"sGold","path":"sprites/sGold/sGold.yy",},},
     {"id":{"name":"sHealthPotion","path":"sprites/sHealthPotion/sHealthPotion.yy",},},
     {"id":{"name":"sHorizontalWood","path":"sprites/sHorizontalWood/sHorizontalWood.yy",},},
