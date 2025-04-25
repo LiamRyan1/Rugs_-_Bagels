@@ -442,7 +442,7 @@ qellinePostForestCleared_dialogue = {
 			myItemName = "Axe";
 			myItemAmount = 1;
 			myItemDescription = "An axe gifted by a widower";
-			myItemSprite = sManaPotion;
+			myItemSprite = sAxe;
 			myItemScript = undefined;
 			myItemConsumable = true;
 				addItem(playerInv, myItemName, myItemAmount, myItemDescription, myItemSprite, myItemScript,myItemConsumable);
@@ -476,7 +476,7 @@ qellinePostFightNeverTalkedForestCleared_dialogue = {
 			myItemName = "Axe";
 			myItemAmount = 1;
 			myItemDescription = "An axe gifted by a widower";
-			myItemSprite = sManaPotion;
+			myItemSprite = sAxe;
 			myItemScript = undefined;
 			myItemConsumable = true;
 				addItem(playerInv, myItemName, myItemAmount, myItemDescription, myItemSprite, myItemScript,myItemConsumable);

@@ -102,6 +102,7 @@
     {"id":{"name":"snd_MainTheme","path":"sounds/snd_MainTheme/snd_MainTheme.yy",},},
     {"id":{"name":"sAttackLightning","path":"sprites/sAttackLightning/sAttackLightning.yy",},},
     {"id":{"name":"sAttackSlash","path":"sprites/sAttackSlash/sAttackSlash.yy",},},
+    {"id":{"name":"sAxe","path":"sprites/sAxe/sAxe.yy",},},
     {"id":{"name":"sbasicColours","path":"sprites/sbasicColours/sbasicColours.yy",},},
     {"id":{"name":"sBattleBackground1","path":"sprites/sBattleBackground1/sBattleBackground1.yy",},},
     {"id":{"name":"sButton","path":"sprites/sButton/sButton.yy",},},
