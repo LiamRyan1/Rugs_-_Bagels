@@ -3,9 +3,10 @@
   "%Name":"tColours",
   "autoTileSets":[],
   "macroPageTiles":{
-    "SerialiseHeight":0,
-    "SerialiseWidth":0,
-    "TileSerialiseData":[],
+    "SerialiseHeight":8,
+    "SerialiseWidth":5,
+    "TileCompressedData":[-7,0,1,14,-4,0,1,10,-14,0,8,13,9,1,0,0,6,7,3,-4,0,1,11,],
+    "TileDataFormat":1,
   },
   "name":"tColours",
   "out_columns":4,

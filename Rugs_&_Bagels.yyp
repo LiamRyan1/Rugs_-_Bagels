@@ -151,6 +151,7 @@
     {"id":{"name":"sTreesFolliage","path":"sprites/sTreesFolliage/sTreesFolliage.yy",},},
     {"id":{"name":"sUpdatedTextures","path":"sprites/sUpdatedTextures/sUpdatedTextures.yy",},},
     {"id":{"name":"sVerticalWood","path":"sprites/sVerticalWood/sVerticalWood.yy",},},
+    {"id":{"name":"sVIllageBackground","path":"sprites/sVIllageBackground/sVIllageBackground.yy",},},
     {"id":{"name":"sVillager","path":"sprites/sVillager/sVillager.yy",},},
     {"id":{"name":"sVillager2","path":"sprites/sVillager2/sVillager2.yy",},},
     {"id":{"name":"sVillager3","path":"sprites/sVillager3/sVillager3.yy",},},

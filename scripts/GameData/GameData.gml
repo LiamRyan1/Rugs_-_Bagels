@@ -45,7 +45,7 @@ global.actionLibrary =
 	{
 		name: "Dragon Slayer",
 		description: "{0} attacks with Dragon Slayer!",
-		subMenu: "inventory",
+		subMenu: "Inventory",
 		targetRequired: true,
 		targetEnemyByDefault: true,
 		targetAll: MODE.NEVER,
@@ -88,7 +88,7 @@ global.actionLibrary =
 	{
 		name: "Health Potion",
 		description: "{0} drank a health potion!",
-		subMenu: "inventory",
+		subMenu: "Inventory",
 		targetRequired: true,
 		targetEnemyByDefault: false,
 		targetAll: MODE.NEVER,
