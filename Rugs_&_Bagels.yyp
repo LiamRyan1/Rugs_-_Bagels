@@ -152,6 +152,7 @@
     {"id":{"name":"sUpdatedTextures","path":"sprites/sUpdatedTextures/sUpdatedTextures.yy",},},
     {"id":{"name":"sVerticalWood","path":"sprites/sVerticalWood/sVerticalWood.yy",},},
     {"id":{"name":"sVillager","path":"sprites/sVillager/sVillager.yy",},},
+    {"id":{"name":"sVillager3","path":"sprites/sVillager3/sVillager3.yy",},},
     {"id":{"name":"sWarning","path":"sprites/sWarning/sWarning.yy",},},
     {"id":{"name":"tCol","path":"tilesets/tCol/tCol.yy",},},
     {"id":{"name":"tColours","path":"tilesets/tColours/tColours.yy",},},
