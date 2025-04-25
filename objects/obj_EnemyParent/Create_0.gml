@@ -11,6 +11,8 @@ alarm[0] = 60;
 collisionMap = layer_tilemap_get_id(layer_get_id("Col"));
 
 
-spriteRun = sSkeleton1;
-spriteIdle = sSkeleton1;
+spriteRun = undefined;
+spriteIdle = undefined;
 localFrame = 0;
+Enemies = [];
+background = undefined;

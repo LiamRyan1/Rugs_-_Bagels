@@ -1,1 +1,1 @@
-NewEncounter([], sBattleBackground1);
+NewEncounter(Enemies , background);
