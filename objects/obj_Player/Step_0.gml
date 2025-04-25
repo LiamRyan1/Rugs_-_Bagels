@@ -64,6 +64,12 @@ if (place_meeting(x + hSpeed, y + vSpeed, obj_Player) || place_meeting(x + hSpee
         x -= sign(hSpeed);
         y -= sign(vSpeed);
     }
+	for (var i = 0; i < ds_grid_height(playerInv); ++i) {
+        if (ds_grid_get(playerInv, 0, i) == "Axe") {
+			instance_destroy(obj_deadTrees);
+			break;
+        }
+    }
     
     //stop movement entirely if collision occurs
     hSpeed = 0;

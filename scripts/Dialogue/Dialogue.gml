@@ -405,6 +405,19 @@ qellinePostForestCleared_dialogue = {
         name: "Qelline:",
         msg: "Here take this axe, it belonged to my late husband"
     },
+	{
+        name: "World",
+        msg: "You received Widowers Axe!",
+		addSpellToParty: function() {
+			myItemName = "Axe";
+			myItemAmount = 1;
+			myItemDescription = "An axe gifted by a widower";
+			myItemSprite = sManaPotion;
+			myItemScript = undefined;
+			myItemConsumable = true;
+				addItem(playerInv, myItemName, myItemAmount, myItemDescription, myItemSprite, myItemScript,myItemConsumable);
+		}
+	},
 	 {
         name: "Qelline:",
         msg: "It should help clear the way through the forest"
@@ -426,13 +439,37 @@ qellinePostFightNeverTalkedForestCleared_dialogue = {
         name: "Qelline:",
         msg: "Here take this axe, it belonged to my late husband"
     },
+	{
+        name: "World",
+        msg: "You received Widowers Axe!",
+		addSpellToParty: function() {
+			myItemName = "Axe";
+			myItemAmount = 1;
+			myItemDescription = "An axe gifted by a widower";
+			myItemSprite = sManaPotion;
+			myItemScript = undefined;
+			myItemConsumable = true;
+				addItem(playerInv, myItemName, myItemAmount, myItemDescription, myItemSprite, myItemScript,myItemConsumable);
+		}
+	},
+	
 	 {
         name: "Qelline:",
         msg: "It should help clear the way through the forest"
     },
 	{
         name: "Qelline:",
-        msg: "Please rid this world of the necromancer for me..."
+        msg: "Please rid this world of the necromancer for me...",
     },
+]
+};
+DestroyTree_dialogue = {
+	 identifier: "DestroyTree_dialogue",
+	 messages: [
+    {
+        name: "World:",
+        msg: "Maybe if you had an axe you could destroy this tree"
+    },
+   
 ]
 };
