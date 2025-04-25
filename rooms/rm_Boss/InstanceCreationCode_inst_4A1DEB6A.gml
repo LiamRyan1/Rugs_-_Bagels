@@ -1,2 +1,2 @@
 Enemies = [enemy];
-background = sBattleBackground1;
+background = sFinalBossBattle;
