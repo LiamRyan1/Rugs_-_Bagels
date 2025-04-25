@@ -36,8 +36,11 @@ else if((ds_map_find_value(global.dialogue_flags, "qellinePostFight_done")
 	show_debug_message("Forset is Cleared: " + string(global.forestcleared))
 	dialog = global.qellinePostForestCleared_dialogue;
 }
-show_debug_message("Forset is Cleared: " + string(global.forestcleared))
-show_debug_message("Forset is Cleared dialouge: " + string(ds_map_find_value(global.dialogue_flags, "qellinePostForestCleared_done")))
+else if(ds_map_find_value(global.dialogue_flags, "qellinePostForestCleared_done") || ds_map_find_value(global.dialogue_flags, "qellinePostFightNeverTalkedForestCleared_done"))
+{
+	dialog = global.qellineKillTheNecromancer_dialogue
+}
+
 
 event_inherited();
 

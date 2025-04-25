@@ -463,11 +463,19 @@ qellinePostFightNeverTalkedForestCleared_dialogue = {
     },
 ]
 };
+qellineKillTheNecromancer_dialogue = {
+	 identifier: "qellinePostFightNeverTalkedForestCleared_done",
+	 messages: [
+    {
+        name: "Qelline:",
+        msg: "Please rid this world of the necromancer for me!"
+    },]
+};
 DestroyTree_dialogue = {
 	 identifier: "DestroyTree_dialogue",
 	 messages: [
     {
-        name: "World:",
+        name: "World",
         msg: "Maybe if you had an axe you could destroy this tree"
     },
    
