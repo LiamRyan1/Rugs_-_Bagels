@@ -16,17 +16,20 @@ ds_map_add(global.dialogue_flags, "welcome_dialogue",false);
 ds_map_add(global.dialogue_flags, "welcome2_dialogue",false);
 ds_map_add(global.dialogue_flags, "welcomeNotFoundSildar",false);
 ds_map_add(global.dialogue_flags, "welcomeFoundSildar",false);
+ds_map_add(global.dialogue_flags, "GundrenDefeatedNecromancer",false);
 //sildar
 ds_map_add(global.dialogue_flags, "forestEntrance1", false);
 ds_map_add(global.dialogue_flags, "forestEntrance2", false);
 ds_map_add(global.dialogue_flags, "forestEntranceTalkToSildar", false);
 ds_map_add(global.dialogue_flags, "forestEntranceTalkToSildarRepeat", false);
+ds_map_add(global.dialogue_flags, "TalkToSildarNecromancerDefeated",false);
 //Qelline
 ds_map_add(global.dialogue_flags, "qellinePreFight_done", false);
 ds_map_add(global.dialogue_flags, "qellinePostFight_done", false);
 ds_map_add(global.dialogue_flags, "qellinePostFightClearedNeverTalked_done", false);
 ds_map_add(global.dialogue_flags, "qellinePostForestCleared_done", false);
 ds_map_add(global.dialogue_flags, "qellinePostFightNeverTalkedForestCleared_done", false);
+ds_map_add(global.dialogue_flags, "TheNecromancerKilled_done",false);
 
 
 char_colors = {
@@ -199,7 +202,21 @@ welcomeFoundSildar_dialogue =
 	},	
 	]
 };
-
+GundrenDefeatedNecromancer_dialogue = 
+{
+	 identifier: "GundrenDefeatedNecromancer",
+	 messages:
+	 [
+	 {
+        name: "Gundren:",
+        msg: "We may travel the woods safely now"
+	},	
+	{
+        name: "Gundren:",
+        msg: "Thank you Hero this village is in your debt"
+	},	
+	]
+};
 
 forestEntrance1_dialogue = {
 	 identifier: "forestEntrance1",
@@ -331,7 +348,20 @@ forestEntranceTalkToSildarRepeat_dialogue = {
         msg: "Good Luck Traveler you'll need it"
     },]
 };
-
+TalkToSildarNecromancerDefeated_dialogue = {
+	 identifier: "TalkToSildarNecromancerDefeated",
+	 messages: [
+    {
+        name: "Sildar:",
+        msg: "By the seven you have freed the world"
+		
+    },
+	{
+        name: "Sildar:",
+        msg: "You have all are thanks"
+		
+    },]
+};
 
 //qelline
 qellinePreFight_dialogue = {
@@ -464,11 +494,27 @@ qellinePostFightNeverTalkedForestCleared_dialogue = {
 ]
 };
 qellineKillTheNecromancer_dialogue = {
-	 identifier: "qellinePostFightNeverTalkedForestCleared_done",
+	 identifier: "KillTheNecromancer_done",
 	 messages: [
     {
         name: "Qelline:",
         msg: "Please rid this world of the necromancer for me!"
+    },]
+};
+qellineTheNecromancerKilled_dialogue = {
+	 identifier: "TheNecromancerKilled_done",
+	 messages: [
+    {
+        name: "Qelline:",
+        msg: "You have rid this world of a great evil"
+    },
+	{
+        name: "Qelline:",
+        msg: "But more importantly you have exacted"
+    },
+	{
+        name: "Qelline:",
+        msg: "my vengence, you are the embodyment of the seven"
     },]
 };
 DestroyTree_dialogue = {

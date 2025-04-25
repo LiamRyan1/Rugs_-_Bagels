@@ -1,6 +1,7 @@
 //might move into game manager objects create event later
 randomize();
 global.forestcleared = false;
+global.NecromancerDead = false;
 function addPlayer(pad_index)
 {
 	if(instance_number(obj_Player) < 3)

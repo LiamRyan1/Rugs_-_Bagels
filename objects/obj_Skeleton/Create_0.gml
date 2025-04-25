@@ -9,7 +9,7 @@ if(room == rm_Village)
 }
 else
 {
-	Level = round(random_range(2,3));
+	Level = round(random_range(3,3));
 	show_debug_message("ran lvl " + string(Level));
 	
 }

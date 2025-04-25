@@ -16,4 +16,8 @@ else
 {
 	dialog = global.forestEntranceTalkToSildarRepeat_dialogue;
 }
+if(global.NecromancerDead == true)
+{
+	dialog = global.TalkToSildarNecromancerDefeated_dialogue
+}
 event_inherited();

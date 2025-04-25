@@ -21,5 +21,8 @@ else
 {
 	dialog = global.welcomeFoundSildar_dialogue;
 }
+if(global.NecromancerDead == true){
+	dialog = global.GundrenDefeatedNecromancer_dialogue;
+}
 //show_debug_message(string(dialouge));
 event_inherited()
