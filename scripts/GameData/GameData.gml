@@ -28,7 +28,7 @@ global.actionLibrary =
 		targetEnemyByDefault: true,
 		targetAll: MODE.NEVER,
 		userAnimation: "idle",
-		effectSprite: sAttackLightning,
+		effectSprite: sAttackDeathGrasp,
 		effectOnTarget: MODE.ALWAYS,
 		mpCost: 5,
 		func: function(_user,_targets)
