@@ -40,7 +40,7 @@ else if((ds_map_find_value(global.dialogue_flags, "qellinePostForestCleared_done
 {
 	dialog = global.qellineKillTheNecromancer_dialogue
 }
-else if(global.NecromancerDead == true)
+if(global.NecromancerDead == true)
 {
 	dialog = global.qellineTheNecromancerKilled_dialogue;
 }
