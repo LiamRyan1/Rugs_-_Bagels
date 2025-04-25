@@ -1,5 +1,4 @@
 global.gamePaused = false;
-
 // textSpeed for dialogue boxes
 global.textSpeed = 0.75;
 

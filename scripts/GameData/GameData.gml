@@ -95,7 +95,7 @@ global.actionLibrary =
 		mpCost: 0,
 		func: function(_user,_targets)
 		{
-			BattleChangeMp(2, _targets[0])
+			BattleChangeMp(10, _targets[0])
 			show_debug_message("Getting called?");
 		}
 	}
@@ -122,7 +122,7 @@ global.party =
 	xpRequiredMultiplier:4,
 	currentXp:0,
 	Sprites : {idle: sPlayerIdle,down: sPlayerDead},
-	actions: [global.actionLibrary.attack]
+	actions: [global.actionLibrary.attack,global.actionLibrary.lightning]
 },
 ];
 function scalePartyStats()

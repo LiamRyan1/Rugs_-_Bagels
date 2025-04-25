@@ -21,6 +21,13 @@ ds_map_add(global.dialogue_flags, "forestEntrance1", false);
 ds_map_add(global.dialogue_flags, "forestEntrance2", false);
 ds_map_add(global.dialogue_flags, "forestEntranceTalkToSildar", false);
 ds_map_add(global.dialogue_flags, "forestEntranceTalkToSildarRepeat", false);
+//Qelline
+ds_map_add(global.dialogue_flags, "qellinePreFight_done", false);
+ds_map_add(global.dialogue_flags, "qellinePostFight_done", false);
+ds_map_add(global.dialogue_flags, "qellinePostFightClearedNeverTalked_done", false);
+ds_map_add(global.dialogue_flags, "qellinePostForestCleared_done", false);
+ds_map_add(global.dialogue_flags, "qellinePostFightNeverTalkedForestCleared_done", false);
+
 
 char_colors = {
     "Gundren:": c_yellow,
@@ -325,6 +332,8 @@ forestEntranceTalkToSildarRepeat_dialogue = {
     },]
 };
 
+
+//qelline
 qellinePreFight_dialogue = {
     identifier: "qellinePreFight_done",
     messages: [
@@ -341,7 +350,7 @@ qellinePreFight_dialogue = {
 
 
 qellinePostFight_dialogue = {
-	 
+	 identifier: "qellinePostFight_done",
 	 messages: [
     {
         name: "Qelline:",
@@ -349,8 +358,81 @@ qellinePostFight_dialogue = {
     },
     {
         name: "Qelline:",
-        msg: "Please check the village for more of them..."
+        msg: "Please check the Forest for more of them..."
     },
 
+]
+};
+
+qellinePostFightNeverTalked_dialogue =
+{
+	 identifier: "qellinePostFightClearedNeverTalked_done",
+	 messages: [
+    {
+        name: "Qelline:",
+        msg: "Thank you traveller!!"
+    },
+    {
+        name: "Qelline:",
+        msg: "You saved me from a gruesome death"
+    },
+	 {
+        name: "Qelline:",
+        msg: "Please Clear the forest of these abominations"
+    },
+	{
+        name: "Qelline:",
+        msg: "I'll have a reward waiting for you,"
+    },
+	{
+        name: "Hero:",
+        msg: "Sure i was going that way anyways"
+    },
+	{
+        name: "Qelline:",
+        msg: "I pray to the seven for your success ,Good luck"
+    },
+]
+};
+qellinePostForestCleared_dialogue = {
+	 identifier: "qellinePostForestCleared_done",
+	 messages: [
+    {
+        name: "Qelline:",
+        msg: "By the Seven I knew you could do it!"
+    },
+    {
+        name: "Qelline:",
+        msg: "Here take this axe, it belonged to my late husband"
+    },
+	 {
+        name: "Qelline:",
+        msg: "It should help clear the way through the forest"
+    },
+	{
+        name: "Qelline:",
+        msg: "Please rid this world of the necromancer for me..."
+    },
+]
+};
+qellinePostFightNeverTalkedForestCleared_dialogue = {
+	 identifier: "qellinePostFightNeverTalkedForestCleared_done",
+	 messages: [
+    {
+        name: "Qelline:",
+        msg: "By the Seven ,you must be the one who cleared the forest!"
+    },
+    {
+        name: "Qelline:",
+        msg: "Here take this axe, it belonged to my late husband"
+    },
+	 {
+        name: "Qelline:",
+        msg: "It should help clear the way through the forest"
+    },
+	{
+        name: "Qelline:",
+        msg: "Please rid this world of the necromancer for me..."
+    },
 ]
 };
