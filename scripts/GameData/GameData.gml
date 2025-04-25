@@ -19,6 +19,28 @@ global.actionLibrary =
 			show_debug_message("Getting called?");
 		}
 	},
+	DeathGrasp:
+	{
+		name: "Death Grasp",
+		description: "{0} casts Death Grasp!",
+		subMenu: "Magic",
+		targetRequired: true,
+		targetEnemyByDefault: true,
+		targetAll: MODE.NEVER,
+		userAnimation: "idle",
+		effectSprite: sAttackLightning,
+		effectOnTarget: MODE.ALWAYS,
+		mpCost: 5,
+		func: function(_user,_targets)
+		{
+			for(var i = 0; i < array_length(_targets); i++)
+			{
+				var _damage = irandom_range(25,32);
+				BattleChangeHp(_targets[i],-_damage,0)
+			}
+			BattleChangeMp(-global.actionLibrary.lightning.mpCost,_user);
+		}
+	},
 	DragonSlayer:
 	{
 		name: "Dragon Slayer",
@@ -167,6 +189,31 @@ global.enemies =
 			//enemy  turn ai
 			//attack random party memeber
 			var _action = actions[0];
+			//remove dead charcters from possible targets
+			var _possibleTargets = array_filter(obj_Battle.partyUnits,function(_unit,_index)
+			{
+				return(_unit.hp > 0);
+			});
+			//choose target at random from the list
+			var _target = _possibleTargets[irandom(array_length(_possibleTargets)-1)];
+			return [_action,_target];
+		}
+	},
+	Necromancer:
+	{
+		//May change these variables to be a range rather then set 
+		name: "Necromancer",
+		baseStats: { Vitality: 5, Strength: 10, Dexterity: 15, Magic:20,Spirit:20,},
+		scaling: { Vitality: 2, Strength: 2, Dexterity: 2, Magic: 3,Spirit:3 },
+		Sprites : {idle: sSkeletonIdle},
+		actions: [global.actionLibrary.attack,global.actionLibrary.DeathGrasp],
+		xpMultiplier: 1,
+		AIscript : function()
+		{
+			//enemy  turn ai
+			//attack random party memeber
+			var _actions = actions;
+			var _action = _actions[irandom(array_length(_actions) - 1)]
 			//remove dead charcters from possible targets
 			var _possibleTargets = array_filter(obj_Battle.partyUnits,function(_unit,_index)
 			{
