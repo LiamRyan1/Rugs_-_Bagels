@@ -57,8 +57,9 @@ if(_oldSprite != sprite_index) localFrame = 0;
 
 //update image index
 PlayerAnimation();
-
-if (place_meeting(x + hSpeed, y + vSpeed, obj_Player) || place_meeting(x + hSpeed, y + vSpeed, obj_Npc_Parent))
+var _nextX = x + hSpeed;
+var _nextY = y + vSpeed;
+if (place_meeting(_nextX,_nextY, obj_Player) || place_meeting(_nextX ,_nextY, obj_Npc_Parent))
 {
     //Resolve collision by pushing the player away in the opposite direction
     while (place_meeting(x + sign(hSpeed), y + sign(vSpeed), obj_Player) ||  place_meeting(x + sign(hSpeed), y + sign(vSpeed), obj_Npc_Parent) )
@@ -68,7 +69,10 @@ if (place_meeting(x + hSpeed, y + vSpeed, obj_Player) || place_meeting(x + hSpee
     }
 	for (var i = 0; i < ds_grid_height(playerInv); ++i) {
         if (ds_grid_get(playerInv, 0, i) == "Axe") {
-			instance_destroy(obj_deadTrees);
+			var _tree = instance_place(_nextX, _nextY, obj_deadTrees);
+            if (_tree != noone) {
+                instance_destroy(_tree); // Destroy just that tree
+            }
 			break;
         }
     }
@@ -96,7 +100,7 @@ if (_exit != noone && !instance_exists(_exit.linked_roof_type))
     // Recreate only THIS exit's specific roof
     instance_create_depth(
         _exit.roof_x,      // Pre-set X position
-        _exit.roof_y,      // Pre-set Y position
+		_exit.roof_y,      // Pre-set Y position
         _exit.roof_depth,  // Depth (e.g., -100)
         _exit.linked_roof_type  // obj_Roof_House, etc.
     );

@@ -111,7 +111,7 @@ function BattleStateSelectAction()
 						 _available = true; 
 					}
 					var _nameAndCount = _action.name; 
-					if(_action.subMenu == "inventory")
+					if(_action.subMenu == "Inventory")
 					{
 						_nameAndCount += " X" + string( ItemAmount(playerInv,_action.name));
 					}
@@ -176,7 +176,7 @@ function BeginAction(_user,_action,_targets)
 		}
 	}
 	show_debug_message("Current frame: " + string(currentUser.image_index) + " / " + string(currentUser.image_number));
-	if(_action.subMenu == "inventory")
+	if(_action.subMenu == "Inventory")
 	{
 		show_debug_message("Consuming item");
 		ItemConsume(playerInv,_action);

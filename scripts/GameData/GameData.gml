@@ -107,7 +107,7 @@ global.actionLibrary =
 	{
 		name: "Mana Potion",
 		description: "{0} drank a mana potion!",
-		subMenu: "inventory",
+		subMenu: "Inventory",
 		targetRequired: true,
 		targetEnemyByDefault: false,
 		targetAll: MODE.NEVER,
