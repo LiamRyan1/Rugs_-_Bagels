@@ -105,6 +105,7 @@
     {"id":{"name":"sbasicColours","path":"sprites/sbasicColours/sbasicColours.yy",},},
     {"id":{"name":"sBattleBackground1","path":"sprites/sBattleBackground1/sBattleBackground1.yy",},},
     {"id":{"name":"sButton","path":"sprites/sButton/sButton.yy",},},
+    {"id":{"name":"sCauldron","path":"sprites/sCauldron/sCauldron.yy",},},
     {"id":{"name":"sCol","path":"sprites/sCol/sCol.yy",},},
     {"id":{"name":"sDeadTrees","path":"sprites/sDeadTrees/sDeadTrees.yy",},},
     {"id":{"name":"sDownArrow","path":"sprites/sDownArrow/sDownArrow.yy",},},

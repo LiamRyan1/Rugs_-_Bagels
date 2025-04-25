@@ -1,4 +1,4 @@
-// Set the player's initial state
+s// Set the player's initial state
 state = PlayerStateFree;
 
 // Ensure lastState is initialized properly
