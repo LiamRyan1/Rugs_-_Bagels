@@ -1,4 +1,5 @@
 instance_deactivate_all(true);
+//remove extra cameras from other players
 view_visible[1] = false;
 view_visible[2] = false;
 view_set_xport(0,0);
@@ -35,20 +36,20 @@ cursor =
 	active : false
 };
 lvlup = false;
-//ememies units
+//ememies units add to units array
 for(var i = 0; i<array_length(enemies); i++)
 {
 	enemyUnits[i] = instance_create_depth(x+250+(i*10),y+68+(i*20),depth-10,obj_BattleUnitEnemy,enemies[i]);
 	array_push(units,enemyUnits[i]);
 }
-//party units
+//party units add to units array
 for(var i = 0; i< array_length(global.party); i++)
 {
 	partyUnits[i] = instance_create_depth(x+70+(i*10),y+68+(i*15),depth-10,obj_BattleUnitPartyMembers,global.party[i]);
 	array_push(units,partyUnits[i]);
 }
 
-//sort turn order
+//sort turn order by dexterity higher dext = earlier
 //copy units to unitTurnOrder
 array_copy(unitTurnOrder,0,units,0,array_length(units))
 if(array_length(unitTurnOrder) > 0){
@@ -60,7 +61,7 @@ if(array_length(unitTurnOrder) > 0){
 }
 
 
-//render order
+//render order 
 RefreshRenderOrder = function(){
 	//Get render order
 	unitRenderOrder = [];
@@ -98,7 +99,7 @@ function BattleStateSelectAction()
 				for(var i = 0; i < array_length(_actionList); i++)
 				{
 					var _action = _actionList[i];
-					//check mp cost
+					//check action is available
 					var _available = true;
 					
 					show_debug_message("entered");
@@ -111,16 +112,18 @@ function BattleStateSelectAction()
 						 _available = true; 
 					}
 					var _nameAndCount = _action.name; 
+					//get item count if action is in the inventory
 					if(_action.subMenu == "Inventory")
 					{
 						_nameAndCount += " X" + string( ItemAmount(playerInv,_action.name));
 					}
 					
-					show_debug_message("Action: " + string(_action.name) + " | subMenu: " + string(_action.subMenu));
+					//show_debug_message("Action: " + string(_action.name) + " | subMenu: " + string(_action.subMenu));
+					//add submenus and top lvl menus to the top of menu array
 					if(_action.subMenu == -1)
 					{
 						array_push(_menuOptions,[_nameAndCount,MenuSelectAction,[_unit,_action],_available]);
-						show_debug_message("top lvl menu pushed");
+						//show_debug_message("top lvl menu pushed");
 					}
 					else
 					{
@@ -144,6 +147,7 @@ function BattleStateSelectAction()
 					//add submenu to main top lvl menu
 					array_push(_menuOptions,[_subMenusArray[i],SubMenu,[_subMenus[$ _subMenusArray[i]]],true]);
 				}
+				//create the menu
 				Menu(x+10,y+10,_menuOptions,,,60);
 			}	
 		else
@@ -175,7 +179,8 @@ function BeginAction(_user,_action,_targets)
 			image_speed = 1;
 		}
 	}
-	show_debug_message("Current frame: " + string(currentUser.image_index) + " / " + string(currentUser.image_number));
+	//show_debug_message("Current frame: " + string(currentUser.image_index) + " / " + string(currentUser.image_number));
+	//If using an inventory item, consume it
 	if(_action.subMenu == "Inventory")
 	{
 		show_debug_message("Consuming item");
@@ -200,7 +205,7 @@ function BattleStatePerformAction()
 				image_index = 0;
 				acting = false;
 			}
-		
+			//play visuals
 			if(variable_struct_exists(currentAction,"effectSprite"))
 			{
 				if(currentAction.effectOnTarget == MODE.ALWAYS) || ((currentAction.efffectOnTarget == MODE.VARIES) && (array_length(currentTargets) <=1))

@@ -43,7 +43,7 @@ if(cursor.active)
 		}
 		var _moveH = _keyRight - _keyLeft;
 		var _moveV = _keyDown - _keyUp;
-		
+		//switch side based on h movement
 		if(_moveH == -1) targetSide = obj_Battle.partyUnits;
 		if(_moveH == 1) targetSide = obj_Battle.enemyUnits;
 		

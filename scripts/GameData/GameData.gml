@@ -73,12 +73,12 @@ global.actionLibrary =
 		userAnimation: "idle",
 		effectSprite: sAttackLightning,
 		effectOnTarget: MODE.ALWAYS,
-		mpCost:0,
+		mpCost:5,
 		func: function(_user,_targets)
 		{
 			for(var i = 0; i < array_length(_targets); i++)
 			{
-				var _damage = irandom_range(100,100);
+				var _damage = irandom_range(45,60);
 				BattleChangeHp(_targets[i],-_damage,0)
 			}
 			BattleChangeMp(-global.actionLibrary.lightning.mpCost,_user);
@@ -144,7 +144,7 @@ global.party =
 	xpRequiredMultiplier:4,
 	currentXp:0,
 	Sprites : {idle: sPlayerIdle,down: sPlayerDead},
-	actions: [global.actionLibrary.attack,global.actionLibrary.lightning]
+	actions: [global.actionLibrary.attack]
 },
 ];
 function scalePartyStats()

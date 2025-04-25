@@ -21,9 +21,9 @@ function Menu(_x,_y,_options,_description =-1,_width = undefined,_height = undef
 			if(description != -1) width = max(width, string_width(_description));
 			for(var i = 0; i < _optionsCount; i++)
 			{
-				width = max(width, string_width(_options[i][0]));
+				width = max(width, string_width(_options[i][0]));//Max width of any option action
 			}
-			widthFull = width + xMargin * 3;
+			widthFull = width + xMargin * 3;//final width with margins
 		}else widthFull = _width;
 		
 		//auto height
@@ -45,6 +45,7 @@ function Menu(_x,_y,_options,_description =-1,_width = undefined,_height = undef
 		}
 	}
 }
+//enter subMenu
 function SubMenu(_options)
 {
 	optionsAbove[subMenuLevel] = options;
@@ -52,6 +53,7 @@ function SubMenu(_options)
 	options = _options;
 	hover = 0;
 }
+//return to top menu
 function MenuGoBack()
 {
 	subMenuLevel--;
@@ -71,7 +73,7 @@ function MenuSelectAction(_user,_action)
 				active = true;
 				activeAction = _action;
 				targetAll = _action.targetAll;
-				if(targetAll == MODE.VARIES) targetAll = true;
+				if(targetAll == MODE.VARIES) targetAll = true; //default to multi target
 				activeUser = _user;
 				//target enemys
 				if(_action.targetEnemyByDefault)
